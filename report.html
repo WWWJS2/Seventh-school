@@ -8,18 +8,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--green:#0f5132;--green2:#13795b;--mint:#d1fae5;--text:#111827;--muted:#64748b}
+:root{--green:#0f5132;--green2:#13795b;--text:#111827;--muted:#64748b}
 *{box-sizing:border-box}body{margin:0;font-family:'Tajawal',Arial,sans-serif;background:#f3f4f6;color:var(--text)}
 .toolbar{position:sticky;top:0;z-index:10;display:flex;gap:8px;align-items:center;padding:10px 14px;background:#fff;border-bottom:1px solid #e5e7eb;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .toolbar a,.toolbar button{border:0;border-radius:10px;padding:9px 14px;font-family:inherit;font-weight:800;cursor:pointer;text-decoration:none}.toolbar a{background:#e5e7eb;color:#111827}.toolbar button{background:var(--green2);color:#fff}.toolbar .spacer{flex:1}.status{font-size:.85rem;color:var(--muted)}
 .page{width:min(210mm,96vw);min-height:297mm;margin:18px auto;background:#fff;padding:14mm 13mm;box-shadow:0 8px 28px rgba(0,0,0,.12)}
 .school-head{background:var(--green);color:#fff;border-radius:4px;padding:14px 18px;text-align:center;margin-bottom:16px}.school-head .school{font-size:1.45rem;font-weight:900}.school-head .ministry{font-size:.95rem;margin-top:3px;opacity:.95}
 .report-title{text-align:center;margin:12px 0 20px}.report-title h1{font-size:1.45rem;margin:0 0 5px}.report-title p{margin:0;color:var(--muted);font-size:.92rem}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:800;font-size:.92rem}.field input,.field textarea,.field select{width:100%;border:1.5px solid #bbf7d0;border-radius:10px;padding:10px 11px;font-family:inherit;font-size:1rem;background:#fff}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{outline:3px solid rgba(19,121,91,.12);border-color:var(--green2)}
-.section{border:1.5px solid #bbf7d0;border-radius:14px;padding:14px;margin-top:14px}.section h2{font-size:1rem;color:var(--green);margin:0 0 12px}.photos{display:flex;gap:8px;flex-wrap:wrap}.preview{width:110px;height:85px;object-fit:cover;border-radius:8px;border:1px solid #d1d5db}
-.print-note{margin-top:16px;padding:10px 12px;border-radius:10px;background:#f8fafc;color:#475569;font-size:.84rem}.required::after{content:' *';color:#dc2626}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:800;font-size:.92rem}.field input,.field textarea{width:100%;border:1.5px solid #bbf7d0;border-radius:10px;padding:10px 11px;font-family:inherit;font-size:1rem;background:#fff}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field textarea:focus{outline:3px solid rgba(19,121,91,.12);border-color:var(--green2)}
+.section{border:1.5px solid #bbf7d0;border-radius:14px;padding:14px;margin-top:14px}.section h2{font-size:1rem;color:var(--green);margin:0 0 12px}.photos{display:flex;gap:8px;flex-wrap:wrap}.preview{width:110px;height:85px;object-fit:cover;border-radius:8px;border:1px solid #d1d5db}.required::after{content:' *';color:#dc2626}
 @media(max-width:680px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.page{padding:18px 14px;margin:0;width:100%;min-height:100vh;box-shadow:none}.toolbar{position:static;flex-wrap:wrap}}
-@media print{@page{size:A4 portrait;margin:0}body{background:#fff}.toolbar,.print-note{display:none!important}.page{width:210mm;min-height:297mm;margin:0;box-shadow:none;padding:12mm 12mm}.field input,.field textarea,.field select{border-color:#c7ead5!important;background:#fff!important;color:#000!important}.section{break-inside:avoid}.school-head{background:var(--green)!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media print{@page{size:A4 portrait;margin:0}body{background:#fff}.toolbar{display:none!important}.page{width:210mm;min-height:297mm;margin:0;box-shadow:none;padding:12mm}.field input,.field textarea{border-color:#c7ead5!important;background:#fff!important;color:#000!important}.section{break-inside:avoid}.school-head{background:var(--green)!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}input[type=file]{display:none!important}}
 </style>
 </head>
 <body>
@@ -40,7 +39,6 @@
     <p id="reportSubtitle">نموذج إلكتروني قابل للطباعة</p>
   </section>
   <div id="formRoot"></div>
-  <div class="print-note">ملاحظة: لا يطبع النموذج اسم مديرة أو ديباجة أو بيانات مدرسة أخرى. جميع البيانات الأخرى تُدخل يدويًا من المستخدم قبل الطباعة.</div>
 </main>
 <script>
 const TYPES={
@@ -62,15 +60,17 @@ const TYPES={
  'workshops':{title:'تقرير ورشة عمل',fields:['اسم المنفذة','عنوان الورشة','التاريخ','مكان التنفيذ','الفئة المستهدفة','عدد الحاضرات','الأهداف','محاور الورشة','آلية التنفيذ','النتائج والأثر','التوصيات']}
 };
 const params=new URLSearchParams(location.search),key=params.get('type')||'general',cfg=TYPES[key]||TYPES.general;
-document.getElementById('reportTitle').textContent=cfg.title;document.getElementById('reportSubtitle').textContent=cfg.subtitle||'نموذج إلكتروني قابل للطباعة';document.title=cfg.title+' | الابتدائية السابعة بمحافظة الوجه';
+document.getElementById('reportTitle').textContent=cfg.title;
+document.getElementById('reportSubtitle').textContent=cfg.subtitle||'نموذج إلكتروني قابل للطباعة';
+document.title=cfg.title+' | الابتدائية السابعة بمحافظة الوجه';
 const root=document.getElementById('formRoot');
 const section=document.createElement('section');section.className='section';section.innerHTML='<h2>بيانات التقرير</h2><div class="form-grid" id="grid"></div>';root.appendChild(section);const grid=section.querySelector('#grid');
 const longWords=['الأهداف','وصف','النتائج','الأثر','التوصيات','الملاحظات','محاور','محتوى','الإجراءات','الممارسات','ملخص','ناتج التعلم','ما تم تنفيذه'];
-cfg.fields.forEach((name,i)=>{const wrap=document.createElement('div');const isLong=longWords.some(w=>name.includes(w));wrap.className='field '+(isLong?'full':'');const label=document.createElement('label');label.textContent=name; if(i<2)label.classList.add('required');let input;if(isLong){input=document.createElement('textarea')}else{input=document.createElement('input');input.type=name.includes('التاريخ')?'date':'text'}input.dataset.field=name;input.autocomplete='off';wrap.append(label,input);grid.appendChild(wrap)});
+cfg.fields.forEach((name,i)=>{const wrap=document.createElement('div');const isLong=longWords.some(w=>name.includes(w));wrap.className='field '+(isLong?'full':'');const label=document.createElement('label');label.textContent=name;if(i<2)label.classList.add('required');const input=isLong?document.createElement('textarea'):document.createElement('input');if(!isLong)input.type=name.includes('التاريخ')?'date':'text';input.dataset.field=name;input.autocomplete='off';wrap.append(label,input);grid.appendChild(wrap)});
 const evidence=document.createElement('section');evidence.className='section';evidence.innerHTML='<h2>الشواهد (اختياري)</h2><div class="field"><label>إرفاق صور</label><input id="photoInput" type="file" accept="image/*" multiple></div><div class="photos" id="photos"></div>';root.appendChild(evidence);
 document.getElementById('photoInput').addEventListener('change',e=>{const box=document.getElementById('photos');box.innerHTML='';[...e.target.files].slice(0,4).forEach(f=>{const img=document.createElement('img');img.className='preview';img.alt='شاهد مرفق';img.src=URL.createObjectURL(f);box.appendChild(img)})});
 document.getElementById('printBtn').addEventListener('click',()=>window.print());
-document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='file')el.value='';else el.value=''});document.getElementById('photos').innerHTML=''})
+document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('#formRoot input:not([type=file]),#formRoot textarea').forEach(el=>el.value='');document.getElementById('photoInput').value='';document.getElementById('photos').innerHTML=''});
 </script>
 </body>
 </html>
