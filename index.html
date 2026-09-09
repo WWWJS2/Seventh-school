@@ -8,17 +8,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#10b981;--secondary:#059669;--dark:#047857;--deep:#065f46;--light:#d1fae5;--text:#0f172a;--gray:#64748b}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Tajawal',sans-serif;background:#f0fdf4;color:var(--text);min-height:100vh}
-.hero{position:relative;overflow:hidden;background:linear-gradient(145deg,#ffffff 0%,#f0fdf4 60%,#dcfce7 100%);border-bottom:1px solid #bbf7d0;padding:46px 18px 42px;text-align:center}
+:root{--primary:#10b981;--secondary:#059669;--dark:#047857;--deep:#065f46;--light:#d1fae5;--text:#0f172a;--gray:#64748b;--shadow:0 4px 12px rgba(16,185,129,.1)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',Tahoma,Arial,sans-serif;background:#f0fdf4;color:var(--text);min-height:100vh;overflow-x:hidden;line-height:1.65}
+.hero{position:relative;overflow:hidden;background:linear-gradient(145deg,#fff 0%,#f0fdf4 60%,#dcfce7 100%);border-bottom:1px solid #bbf7d0;padding:46px 18px 42px;text-align:center}
 .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(16,185,129,.07);pointer-events:none}.hero::before{width:260px;height:260px;right:-90px;top:-120px}.hero::after{width:220px;height:220px;left:-80px;bottom:-130px}
 .hero-inner{position:relative;z-index:1;max-width:880px;margin:auto}.ministry-pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #a7f3d0;color:var(--deep);border-radius:999px;padding:8px 16px;font-weight:800;font-size:.95rem;box-shadow:0 6px 18px rgba(4,120,87,.08)}.ministry-pill::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--primary)}
-.hero h1{margin-top:18px;color:var(--deep);font-size:clamp(2rem,4vw,3.1rem);font-weight:900;line-height:1.35;letter-spacing:-.02em}.hero .system{margin-top:8px;color:#334155;font-size:1.18rem;font-weight:700}.hero .divider{width:68px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--primary),var(--secondary));margin:18px auto 14px}.hero .verse{color:var(--dark);font-weight:800;font-size:1.02rem}
-.nav{background:linear-gradient(135deg,var(--primary),var(--secondary));padding:28px 14px 34px}.wrap{max-width:1200px;margin:auto}.nav-title{text-align:center;color:#fff;font-size:1.4rem;font-weight:900;margin-bottom:22px}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:17px}.card{border:0;background:#fff;border-radius:16px;padding:20px 14px;min-height:142px;box-shadow:0 5px 14px rgba(0,0,0,.08);cursor:pointer;font-family:'Tajawal';transition:.2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.card:hover{transform:translateY(-4px);box-shadow:0 13px 24px rgba(0,0,0,.13)}.card:focus-visible{outline:3px solid #fde68a;outline-offset:3px}.card .icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:2rem;background:#ecfdf5}.card .title{font-size:1.06rem;color:var(--dark);font-weight:900}.sub{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.sub span{font-size:.75rem;background:#e5e7eb;color:#475569;border-radius:999px;padding:3px 8px}
-.viewer{display:none;position:fixed;inset:0;background:#f8fafc;z-index:9999;flex-direction:column}.viewer.open{display:flex}.viewerbar{background:#fff;border-bottom:1px solid #dbeafe;min-height:64px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 12px rgba(0,0,0,.08)}.viewerbar strong{flex:1;text-align:center;color:var(--dark);font-size:1.05rem}.back{border:0;background:var(--primary);color:#fff;padding:10px 16px;border-radius:10px;font-family:'Tajawal';font-weight:800;cursor:pointer}.viewer iframe{width:100%;height:calc(100vh - 64px);border:0;background:#fff}
-.footer{text-align:center;background:linear-gradient(135deg,var(--primary),var(--deep));color:#fff;padding:18px;font-weight:800}
-@media(max-width:520px){.hero{padding:34px 14px 30px}.hero h1{font-size:1.8rem}.hero .system{font-size:1.05rem}.cards{grid-template-columns:1fr}}
+.hero h1{margin-top:18px;color:var(--deep);font-size:clamp(2rem,4vw,3.1rem);font-weight:900;line-height:1.35}.hero .system{margin-top:8px;color:#334155;font-size:1.18rem;font-weight:700}.hero .divider{width:68px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--primary),var(--secondary));margin:18px auto 14px}.hero .verse{color:var(--dark);font-weight:800;font-size:1.02rem}
+nav{background:linear-gradient(135deg,var(--primary),var(--secondary));padding:28px 14px 34px;box-shadow:0 4px 12px rgba(16,185,129,.2)}.wrap{max-width:1200px;margin:auto}.nav-title{text-align:center;color:#fff;font-size:1.4rem;font-weight:900;margin-bottom:22px}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:17px}.card{appearance:none;border:1px solid rgba(0,0,0,.04);width:100%;background:#fff;border-radius:16px;padding:20px 14px;min-height:142px;box-shadow:0 5px 14px rgba(0,0,0,.08);cursor:pointer;font-family:'Tajawal';transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}.card:hover{transform:translateY(-4px);box-shadow:0 13px 24px rgba(0,0,0,.13)}.card:active{transform:scale(.99)}.card:focus-visible{outline:3px solid #fde68a;outline-offset:3px}.card .icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:2rem;background:#ecfdf5}.card .title{font-size:1.06rem;color:var(--dark);font-weight:900}.sub{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.sub span{font-size:.75rem;background:#e5e7eb;color:#475569;border-radius:999px;padding:3px 8px}
+#iframe-container{width:100%;height:80vh;display:none;margin-top:20px;padding:0 1rem}#content-frame{width:100%;height:100%;border-radius:12px;box-shadow:var(--shadow);border:none;background:#fff}
+#back-btn{position:fixed;top:18px;right:18px;z-index:1200;background:var(--primary);color:#fff;border:none;padding:10px 14px;border-radius:12px;cursor:pointer;font-family:'Tajawal',sans-serif;box-shadow:0 2px 10px rgba(0,0,0,.18);display:none;font-weight:900}
+.footer{text-align:center;background:linear-gradient(135deg,var(--primary),var(--deep));color:#fff;padding:18px;font-weight:800;margin-top:30px}
+@media(max-width:520px){.hero{padding:34px 14px 30px}.hero h1{font-size:1.8rem}.hero .system{font-size:1.05rem}.cards{grid-template-columns:1fr}#iframe-container{height:82vh;padding:0 .6rem}#back-btn{top:12px;right:12px;padding:9px 12px}}
 </style>
 </head>
 <body>
@@ -31,27 +32,52 @@ body{font-family:'Tajawal',sans-serif;background:#f0fdf4;color:var(--text);min-h
     <div class="verse">﴿ وَقُلْ رَبِّ زِدْنِي عِلْمًا ﴾</div>
   </div>
 </header>
-<section class="nav"><div class="wrap"><div class="nav-title">تقارير المدرسة الشاملة</div><div class="cards">
-<button class="card" data-url="https://defullah2010-svg.github.io/R1397/" data-title="التقارير"><div class="icon">🗓️</div><div class="title">التقارير</div><div class="sub"><span>اليومي</span><span>الأسبوعي</span><span>الشهري</span></div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/A1397/" data-title="النشاط الطلابي"><div class="icon">🌟</div><div class="title">النشاط الطلابي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/AC1397/" data-title="الأنشطة اللاصفية"><div class="icon">🧩</div><div class="title">الأنشطة اللاصفية</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/Trace1397/" data-title="متابعة الأنشطة"><div class="icon">📋</div><div class="title">متابعة الأنشطة</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/L1397/" data-title="التواصل مع أولياء الأمور"><div class="icon">📞</div><div class="title">التواصل مع أولياء الأمور</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/T1397/" data-title="التوجيه الطلابي"><div class="icon">🎓</div><div class="title">التوجيه الطلابي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/V1397/" data-title="تبادل الزيارات"><div class="icon">📝</div><div class="title">تبادل الزيارات</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/P1397/" data-title="خريطة نواتج التعلّم"><div class="icon">🗺️</div><div class="title">خريطة نواتج التعلّم</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/PLC1397/" data-title="مجتمعات التعلّم المهنية"><div class="icon">📑</div><div class="title">مجتمعات التعلّم المهنية</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/D1397/" data-title="التوجيه الصحي"><div class="icon">⚕️</div><div class="title">التوجيه الصحي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/S1397/" data-title="التعلّم النشط"><div class="icon">♟️</div><div class="title">التعلّم النشط</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/LessonA1397/" data-title="الدرس التطبيقي"><div class="icon">📚</div><div class="title">الدرس التطبيقي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/Warshah1397/" data-title="ورش العمل"><div class="icon">🛠️</div><div class="title">ورش العمل</div></button>
-</div></div></section>
+<nav>
+  <div class="wrap">
+    <div class="nav-title">تقارير المدرسة الشاملة</div>
+    <div class="cards">
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/R1397/" data-title="التقارير"><div class="icon">🗓️</div><div class="title">التقارير</div><div class="sub"><span>اليومي</span><span>الأسبوعي</span><span>الشهري</span></div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/A1397/" data-title="النشاط الطلابي"><div class="icon">🌟</div><div class="title">النشاط الطلابي</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/AC1397/" data-title="الأنشطة اللاصفية"><div class="icon">🧩</div><div class="title">الأنشطة اللاصفية</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/Trace1397/" data-title="متابعة الأنشطة"><div class="icon">📋</div><div class="title">متابعة الأنشطة</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/L1397/" data-title="التواصل مع أولياء الأمور"><div class="icon">📞</div><div class="title">التواصل مع أولياء الأمور</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/T1397/" data-title="التوجيه الطلابي"><div class="icon">🎓</div><div class="title">التوجيه الطلابي</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/V1397/" data-title="تبادل الزيارات"><div class="icon">📝</div><div class="title">تبادل الزيارات</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/P1397/" data-title="خريطة نواتج التعلّم"><div class="icon">🗺️</div><div class="title">خريطة نواتج التعلّم</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/PLC1397/" data-title="مجتمعات التعلّم المهنية"><div class="icon">📑</div><div class="title">مجتمعات التعلّم المهنية</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/D1397/" data-title="التوجيه الصحي"><div class="icon">⚕️</div><div class="title">التوجيه الصحي</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/S1397/" data-title="التعلّم النشط"><div class="icon">♟️</div><div class="title">التعلّم النشط</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/LessonA1397/" data-title="الدرس التطبيقي"><div class="icon">📚</div><div class="title">الدرس التطبيقي</div></button>
+      <button class="card" type="button" data-url="https://defullah2010-svg.github.io/Warshah1397/" data-title="ورش العمل"><div class="icon">🛠️</div><div class="title">ورش العمل</div></button>
+    </div>
+  </div>
+</nav>
+<div id="iframe-container">
+  <iframe id="content-frame" src="about:blank" title="نموذج التقرير"></iframe>
+</div>
 <footer class="footer">الابتدائية السابعة بمحافظة الوجه — نظام التقارير الإلكترونية</footer>
-<div class="viewer" id="viewer"><div class="viewerbar"><button class="back" id="back">رجوع</button><strong id="viewerTitle">التقرير</strong></div><iframe id="frame" title="نموذج التقرير"></iframe></div>
+<button id="back-btn" type="button">← العودة للرئيسية</button>
 <script>
-const viewer=document.getElementById('viewer'),frame=document.getElementById('frame'),viewerTitle=document.getElementById('viewerTitle');
-document.querySelectorAll('.card').forEach(card=>card.addEventListener('click',()=>{viewerTitle.textContent=card.dataset.title||'التقرير';frame.src=card.dataset.url;viewer.classList.add('open');document.body.style.overflow='hidden'}));
-document.getElementById('back').addEventListener('click',()=>{viewer.classList.remove('open');frame.src='';document.body.style.overflow=''});
+function loadInIframe(url,title){
+  const iframeContainer=document.getElementById('iframe-container');
+  const iframe=document.getElementById('content-frame');
+  const backBtn=document.getElementById('back-btn');
+  document.title=(title||'تقرير')+' - نظام التقارير الإلكترونية';
+  iframe.src=url;
+  iframeContainer.style.display='block';
+  iframeContainer.scrollIntoView({behavior:'smooth',block:'start'});
+  backBtn.style.display='block';
+  backBtn.onclick=function(){
+    iframeContainer.style.display='none';
+    iframe.src='about:blank';
+    document.title='نظام التقارير الإلكترونية | الابتدائية السابعة بمحافظة الوجه';
+    backBtn.style.display='none';
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+}
+document.querySelectorAll('.card').forEach(btn=>{
+  btn.addEventListener('click',()=>loadInIframe(btn.dataset.url,btn.dataset.title||'تقرير'),{passive:true});
+});
 </script>
 </body>
 </html>
