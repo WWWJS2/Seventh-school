@@ -1,0 +1,107 @@
+name: Build Seventh School Reports
+
+on:
+  push:
+    paths:
+      - ".github/workflows/build-school7.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout destination repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy reports portal and apply Seventh School identity
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git clone --depth 1 https://github.com/WWWJS2/school26.git /tmp/school26
+
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.github' -exec rm -rf {} +
+          rsync -a --exclude='.git' --exclude='.github' /tmp/school26/ ./
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              'https://raw.githubusercontent.com/omymh/school26/main/26.png': 'school7-logo.svg',
+              'https://raw.githubusercontent.com/WWWJS2/school26/main/26.png': 'school7-logo.svg',
+              'src="26.png"': 'src="school7-logo.svg"',
+              "src='26.png'": "src='school7-logo.svg'",
+              'المدرسة السادسة والعشرون': 'الابتدائية السابعة',
+              'مدرسة السادسة والعشرون': 'الابتدائية السابعة',
+              'السادسة والعشرون': 'السابعة',
+              'المدرسة 26': 'الابتدائية السابعة',
+              'مدرسة 26': 'الابتدائية السابعة',
+          }
+
+          for path in Path('.').glob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+
+              if path.name == 'index.html':
+                  text = text.replace(
+                      '<title>نظام التقارير الإلكترونية</title>',
+                      '<title>نظام التقارير الإلكترونية | الابتدائية السابعة</title>'
+                  )
+                  text = text.replace(
+                      '<p>منصة متكاملة لإدارة التقارير المدرسية</p>',
+                      '<p>الابتدائية السابعة بتبوك — منصة متكاملة لإدارة التقارير المدرسية</p>'
+                  )
+                  text = text.replace(
+                      'نظام داخلي لإدارة التقارير المدرسية الإلكترونية',
+                      'الابتدائية السابعة بتبوك — نظام داخلي لإدارة التقارير المدرسية الإلكترونية'
+                  )
+
+              path.write_text(text, encoding='utf-8')
+
+          Path('README.md').write_text(
+              '# الابتدائية السابعة بتبوك\n\n'
+              'نظام التقارير الإلكترونية للابتدائية السابعة بتبوك، مبني على نفس واجهة ووظائف بوابة التقارير الأصلية.\n',
+              encoding='utf-8'
+          )
+          PY
+
+          cat > school7-logo.svg <<'SVG'
+          <svg xmlns="http://www.w3.org/2000/svg" width="760" height="190" viewBox="0 0 760 190" role="img" aria-labelledby="title desc">
+            <title id="title">الابتدائية السابعة بتبوك</title>
+            <desc id="desc">هوية نصية لنظام التقارير الإلكترونية</desc>
+            <rect width="760" height="190" rx="28" fill="#ffffff"/>
+            <g transform="translate(36 34)">
+              <circle cx="62" cy="62" r="58" fill="#ecfdf5" stroke="#10b981" stroke-width="4"/>
+              <path d="M62 22c10 22 31 30 31 53 0 19-14 35-31 35S31 94 31 75c0-23 21-31 31-53Z" fill="#10b981"/>
+              <path d="M43 73c11 0 19 5 19 17-11 0-19-6-19-17Zm38 0c-11 0-19 5-19 17 11 0 19-6 19-17Z" fill="#ffffff" opacity=".96"/>
+              <path d="M62 45v48" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <g font-family="Tajawal, Arial, sans-serif" text-anchor="middle" fill="#047857">
+              <text x="455" y="73" font-size="38" font-weight="800" direction="rtl">الابتدائية السابعة بتبوك</text>
+              <text x="455" y="118" font-size="23" font-weight="700" direction="rtl" fill="#475569">وزارة التعليم — الإدارة العامة للتعليم بمنطقة تبوك</text>
+              <text x="455" y="151" font-size="20" font-weight="700" direction="rtl" fill="#059669">نظام التقارير الإلكترونية</text>
+            </g>
+          </svg>
+          SVG
+
+          rm -f 26.png
+
+      - name: Commit generated portal
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Build reports portal for Seventh School"
+          git push origin main
