@@ -3,56 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>نظام التقارير الإلكترونية | الابتدائية السابعة</title>
+<meta name="description" content="نظام التقارير الإلكترونية للابتدائية السابعة بمحافظة الوجه">
+<title>نظام التقارير الإلكترونية | الابتدائية السابعة بمحافظة الوجه</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#10b981;--secondary:#059669;--dark:#047857;--light:#d1fae5;--accent:#fbbf24;--text:#0f172a;--gray:#475569;--bg:#f0fdf4;--shadow:0 10px 28px rgba(4,120,87,.12)}
-*{box-sizing:border-box;margin:0;padding:0} body{font-family:'Tajawal',sans-serif;background:linear-gradient(135deg,#f0fdf4,#dcfce7,#f0fdf4);color:var(--text);min-height:100vh}.header{background:#fff;border-bottom:2px solid var(--light);box-shadow:0 4px 14px rgba(16,185,129,.08);padding:18px 16px;text-align:center}.identity{max-width:920px;margin:auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}.mark{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:#ecfdf5;border:3px solid var(--primary);font-size:44px}.header h1{font-size:1.9rem;color:var(--dark);font-weight:900}.header h2{font-size:1.12rem;color:#334155;margin-top:4px}.header p{color:var(--gray);margin-top:5px}.verse{color:var(--dark);font-weight:800;margin-top:10px}.nav{background:linear-gradient(135deg,var(--primary),var(--secondary));padding:22px 14px 28px}.wrap{max-width:1200px;margin:auto}.nav-title{text-align:center;color:white;font-size:1.35rem;font-weight:900;margin-bottom:18px}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:17px}.card{border:0;background:white;border-radius:15px;padding:20px 14px;min-height:142px;box-shadow:0 5px 14px rgba(0,0,0,.08);cursor:pointer;font-family:'Tajawal';transition:.2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.card:hover{transform:translateY(-4px);box-shadow:0 13px 24px rgba(0,0,0,.13)}.card .icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:2rem;background:#ecfdf5}.card .title{font-size:1.06rem;color:var(--dark);font-weight:900}.sub{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.sub span{font-size:.75rem;background:#e5e7eb;color:#475569;border-radius:999px;padding:3px 8px}.featured{border-top:4px solid var(--accent)}.labs{border-top:4px solid #8b5cf6}.viewer{display:none;position:fixed;inset:0;background:#f8fafc;z-index:9999;flex-direction:column}.viewer.open{display:flex}.viewerbar{background:white;border-bottom:1px solid #dbeafe;min-height:64px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 12px rgba(0,0,0,.08)}.viewerbar strong{flex:1;text-align:center;color:var(--dark);font-size:1.05rem}.back{border:0;background:var(--primary);color:white;padding:10px 16px;border-radius:10px;font-family:'Tajawal';font-weight:800;cursor:pointer}.viewer iframe{width:100%;height:calc(100vh - 64px);border:0;background:#fff}.footer{text-align:center;background:linear-gradient(135deg,var(--primary),var(--dark));color:white;padding:18px;font-weight:700}.note{background:#fff7ed;color:#9a3412;text-align:center;padding:8px 12px;font-size:.85rem;display:none}@media(max-width:520px){.header h1{font-size:1.48rem}.header h2{font-size:1rem}.cards{grid-template-columns:1fr}.identity{gap:10px}.mark{width:70px;height:70px;font-size:34px}}
+:root{--primary:#10b981;--secondary:#059669;--dark:#047857;--light:#d1fae5;--accent:#fbbf24;--text:#0f172a;--gray:#475569;--shadow:0 10px 28px rgba(4,120,87,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#f0fdf4,#dcfce7,#f0fdf4);color:var(--text);min-height:100vh}
+.header{background:#fff;border-bottom:2px solid var(--light);box-shadow:0 4px 14px rgba(16,185,129,.08);padding:22px 16px;text-align:center}
+.identity{max-width:920px;margin:auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.mark{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:#ecfdf5;border:3px solid var(--primary);font-size:42px;color:var(--dark);font-weight:900}
+.header h1{font-size:1.9rem;color:var(--dark);font-weight:900}.header h2{font-size:1.1rem;color:#334155;margin-top:5px}.header p{color:var(--gray);margin-top:6px}.verse{color:var(--dark);font-weight:800;margin-top:10px}
+.nav{background:linear-gradient(135deg,var(--primary),var(--secondary));padding:22px 14px 30px}.wrap{max-width:1200px;margin:auto}.nav-title{text-align:center;color:#fff;font-size:1.35rem;font-weight:900;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:17px}.card{border:0;background:#fff;border-radius:15px;padding:20px 14px;min-height:142px;box-shadow:0 5px 14px rgba(0,0,0,.08);cursor:pointer;font-family:'Tajawal';transition:.2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:inherit}.card:hover{transform:translateY(-4px);box-shadow:0 13px 24px rgba(0,0,0,.13)}.card:focus-visible{outline:4px solid #fef3c7;outline-offset:2px}.card .icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:2rem;background:#ecfdf5}.card .title{font-size:1.06rem;color:var(--dark);font-weight:900}.sub{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.sub span{font-size:.75rem;background:#e5e7eb;color:#475569;border-radius:999px;padding:3px 8px}.featured{border-top:4px solid var(--accent)}.labs{border-top:4px solid #8b5cf6}
+.footer{text-align:center;background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;padding:18px;font-weight:800}.safe-note{background:#fff;color:#475569;text-align:center;padding:11px 16px;font-size:.88rem;border-top:1px solid #d1fae5}
+@media(max-width:520px){.header h1{font-size:1.45rem}.header h2{font-size:1rem}.cards{grid-template-columns:1fr}.identity{gap:10px}.mark{width:70px;height:70px;font-size:32px}}
 </style>
 </head>
 <body>
 <header class="header">
   <div class="identity">
-    <div class="mark">🌿</div>
+    <div class="mark" aria-hidden="true">٧</div>
     <div>
-      <h1>الابتدائية السابعة</h1>
-      <h2>وزارة التعليم — الإدارة العامة للتعليم بمنطقة تبوك</h2>
+      <h1>الابتدائية السابعة بمحافظة الوجه</h1>
+      <h2>وزارة التعليم</h2>
       <p>نظام التقارير الإلكترونية</p>
       <div class="verse">﴿ وَقُلْ رَبِّ زِدْنِي عِلْمًا ﴾</div>
     </div>
   </div>
 </header>
 <section class="nav">
-<div class="wrap">
-<div class="nav-title">تقارير المدرسة الشاملة</div>
-<div class="cards">
-<button class="card" data-url="https://defullah2010-svg.github.io/R1397/" data-title="التقارير"><div class="icon">🗓️</div><div class="title">التقارير</div><div class="sub"><span>اليومي</span><span>الأسبوعي</span><span>الشهري</span></div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/A1397/" data-title="النشاط الطلابي"><div class="icon">🌟</div><div class="title">النشاط الطلابي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/AC1397/" data-title="الأنشطة اللاصفية"><div class="icon">🧩</div><div class="title">الأنشطة اللاصفية</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/Trace1397/" data-title="متابعة الأنشطة"><div class="icon">📋</div><div class="title">متابعة الأنشطة</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/L1397/" data-title="التواصل مع أولياء الأمور"><div class="icon">📞</div><div class="title">التواصل مع أولياء الأمور</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/T1397/" data-title="التوجيه الطلابي"><div class="icon">🎓</div><div class="title">التوجيه الطلابي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/V1397/" data-title="تبادل الزيارات"><div class="icon">📝</div><div class="title">تبادل الزيارات</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/P1397/" data-title="خريطة نواتج التعلّم"><div class="icon">🗺️</div><div class="title">خريطة نواتج التعلّم</div></button>
-<button class="card featured" data-url="https://wwwjs2.github.io/school26/" data-title="حصة الانتظار"><div class="icon">🕒</div><div class="title">حصة الانتظار</div></button>
-<button class="card labs" data-url="https://wwwjs2.github.io/school26/" data-title="المختبرات"><div class="icon">🔬</div><div class="title">المختبرات</div></button>
-<button class="card featured" data-url="https://wwwjs2.github.io/school26/" data-title="تقرير عام"><div class="icon">📄</div><div class="title">تقرير عام</div><div class="sub"><span>يومي</span><span>أسبوعي</span><span>شهري</span></div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/PLC1397/" data-title="مجتمعات التعلّم المهنية"><div class="icon">📑</div><div class="title">مجتمعات التعلّم المهنية</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/D1397/" data-title="التوجيه الصحي"><div class="icon">⚕️</div><div class="title">التوجيه الصحي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/S1397/" data-title="التعلّم النشط"><div class="icon">♟️</div><div class="title">التعلّم النشط</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/LessonA1397/" data-title="الدرس التطبيقي"><div class="icon">📚</div><div class="title">الدرس التطبيقي</div></button>
-<button class="card" data-url="https://defullah2010-svg.github.io/Warshah1397/" data-title="ورش العمل"><div class="icon">🛠️</div><div class="title">ورش العمل</div></button>
-</div>
-</div>
+  <div class="wrap">
+    <div class="nav-title">تقارير المدرسة الشاملة</div>
+    <div class="cards">
+      <a class="card" href="report.html?type=teacher-reports"><div class="icon">🗓️</div><div class="title">التقارير</div><div class="sub"><span>اليومي</span><span>الأسبوعي</span><span>الشهري</span></div></a>
+      <a class="card" href="report.html?type=student-activities"><div class="icon">🌟</div><div class="title">النشاط الطلابي</div></a>
+      <a class="card" href="report.html?type=extracurricular"><div class="icon">🧩</div><div class="title">الأنشطة اللاصفية</div></a>
+      <a class="card" href="report.html?type=activity-tracking"><div class="icon">📋</div><div class="title">متابعة الأنشطة</div></a>
+      <a class="card" href="report.html?type=parent-contact"><div class="icon">📞</div><div class="title">التواصل مع أولياء الأمور</div></a>
+      <a class="card" href="report.html?type=student-guidance"><div class="icon">🎓</div><div class="title">التوجيه الطلابي</div></a>
+      <a class="card" href="report.html?type=peer-visits"><div class="icon">📝</div><div class="title">تبادل الزيارات</div></a>
+      <a class="card" href="report.html?type=learning-outcomes"><div class="icon">🗺️</div><div class="title">خريطة نواتج التعلّم</div></a>
+      <a class="card featured" href="report.html?type=waiting-class"><div class="icon">🕒</div><div class="title">حصة الانتظار</div></a>
+      <a class="card labs" href="report.html?type=labs"><div class="icon">🔬</div><div class="title">المختبرات</div></a>
+      <a class="card featured" href="report.html?type=general"><div class="icon">📄</div><div class="title">تقرير عام</div><div class="sub"><span>يومي</span><span>أسبوعي</span><span>شهري</span></div></a>
+      <a class="card" href="report.html?type=plc"><div class="icon">📑</div><div class="title">مجتمعات التعلّم المهنية</div></a>
+      <a class="card" href="report.html?type=health-guidance"><div class="icon">⚕️</div><div class="title">التوجيه الصحي</div></a>
+      <a class="card" href="report.html?type=active-learning"><div class="icon">♟️</div><div class="title">التعلّم النشط</div></a>
+      <a class="card" href="report.html?type=applied-lesson"><div class="icon">📚</div><div class="title">الدرس التطبيقي</div></a>
+      <a class="card" href="report.html?type=workshops"><div class="icon">🛠️</div><div class="title">ورش العمل</div></a>
+    </div>
+  </div>
 </section>
-<footer class="footer">الابتدائية السابعة بتبوك — نظام التقارير الإلكترونية</footer>
-<div class="viewer" id="viewer"><div class="viewerbar"><button class="back" id="back">رجوع</button><strong id="viewerTitle">التقرير</strong></div><iframe id="frame" title="نموذج التقرير"></iframe></div>
-<script>
-const viewer=document.getElementById('viewer'),frame=document.getElementById('frame'),viewerTitle=document.getElementById('viewerTitle');
-document.querySelectorAll('.card').forEach(card=>card.addEventListener('click',()=>{viewerTitle.textContent=card.dataset.title||'التقرير';frame.src=card.dataset.url;viewer.classList.add('open');document.body.style.overflow='hidden'}));
-document.getElementById('back').addEventListener('click',()=>{viewer.classList.remove('open');frame.src='';document.body.style.overflow=''});
-</script>
+<div class="safe-note">جميع نماذج التقارير تعمل محليًا داخل موقع المدرسة ولا تعتمد على نماذج مدارس أخرى.</div>
+<footer class="footer">الابتدائية السابعة بمحافظة الوجه — نظام التقارير الإلكترونية</footer>
 </body>
 </html>
