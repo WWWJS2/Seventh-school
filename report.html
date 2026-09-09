@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نموذج تقرير | الابتدائية السابعة بمحافظة الوجه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0f5132;--green2:#13795b;--mint:#d1fae5;--text:#111827;--muted:#64748b}
+*{box-sizing:border-box}body{margin:0;font-family:'Tajawal',Arial,sans-serif;background:#f3f4f6;color:var(--text)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;gap:8px;align-items:center;padding:10px 14px;background:#fff;border-bottom:1px solid #e5e7eb;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.toolbar a,.toolbar button{border:0;border-radius:10px;padding:9px 14px;font-family:inherit;font-weight:800;cursor:pointer;text-decoration:none}.toolbar a{background:#e5e7eb;color:#111827}.toolbar button{background:var(--green2);color:#fff}.toolbar .spacer{flex:1}.status{font-size:.85rem;color:var(--muted)}
+.page{width:min(210mm,96vw);min-height:297mm;margin:18px auto;background:#fff;padding:14mm 13mm;box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.school-head{background:var(--green);color:#fff;border-radius:4px;padding:14px 18px;text-align:center;margin-bottom:16px}.school-head .school{font-size:1.45rem;font-weight:900}.school-head .ministry{font-size:.95rem;margin-top:3px;opacity:.95}
+.report-title{text-align:center;margin:12px 0 20px}.report-title h1{font-size:1.45rem;margin:0 0 5px}.report-title p{margin:0;color:var(--muted);font-size:.92rem}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:800;font-size:.92rem}.field input,.field textarea,.field select{width:100%;border:1.5px solid #bbf7d0;border-radius:10px;padding:10px 11px;font-family:inherit;font-size:1rem;background:#fff}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{outline:3px solid rgba(19,121,91,.12);border-color:var(--green2)}
+.section{border:1.5px solid #bbf7d0;border-radius:14px;padding:14px;margin-top:14px}.section h2{font-size:1rem;color:var(--green);margin:0 0 12px}.photos{display:flex;gap:8px;flex-wrap:wrap}.preview{width:110px;height:85px;object-fit:cover;border-radius:8px;border:1px solid #d1d5db}
+.print-note{margin-top:16px;padding:10px 12px;border-radius:10px;background:#f8fafc;color:#475569;font-size:.84rem}.required::after{content:' *';color:#dc2626}
+@media(max-width:680px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.page{padding:18px 14px;margin:0;width:100%;min-height:100vh;box-shadow:none}.toolbar{position:static;flex-wrap:wrap}}
+@media print{@page{size:A4 portrait;margin:0}body{background:#fff}.toolbar,.print-note{display:none!important}.page{width:210mm;min-height:297mm;margin:0;box-shadow:none;padding:12mm 12mm}.field input,.field textarea,.field select{border-color:#c7ead5!important;background:#fff!important;color:#000!important}.section{break-inside:avoid}.school-head{background:var(--green)!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <a href="index.html">رجوع</a>
+  <button type="button" id="printBtn">طباعة / حفظ PDF</button>
+  <button type="button" id="clearBtn">مسح البيانات</button>
+  <div class="spacer"></div>
+  <span class="status">لا توجد بيانات مدرسية ثابتة غير معتمدة</span>
+</div>
+<main class="page" id="printArea">
+  <header class="school-head">
+    <div class="school">الابتدائية السابعة بمحافظة الوجه</div>
+    <div class="ministry">وزارة التعليم</div>
+  </header>
+  <section class="report-title">
+    <h1 id="reportTitle">تقرير</h1>
+    <p id="reportSubtitle">نموذج إلكتروني قابل للطباعة</p>
+  </section>
+  <div id="formRoot"></div>
+  <div class="print-note">ملاحظة: لا يطبع النموذج اسم مديرة أو ديباجة أو بيانات مدرسة أخرى. جميع البيانات الأخرى تُدخل يدويًا من المستخدم قبل الطباعة.</div>
+</main>
+<script>
+const TYPES={
+ 'teacher-reports':{title:'تقارير أداء المعلمة',subtitle:'يومي / أسبوعي / شهري',fields:['اسم المعلمة','التخصص','الفصل الدراسي','نوع التقرير','الصف / الفصل','التاريخ','الحصة / الأسبوع / الشهر','عنوان الدرس أو موضوع التقرير','الأهداف','أبرز ما تم تنفيذه','الملاحظات والتحديات','الإجراءات أو التوصيات']},
+ 'student-activities':{title:'تقرير النشاط الطلابي',fields:['اسم المنفذة','اسم البرنامج / النشاط','المجال','مكان التنفيذ','التاريخ','الفئة المستهدفة','عدد المستفيدات','أهداف البرنامج','وصف التنفيذ','الأثر / النتائج','التوصيات']},
+ 'extracurricular':{title:'تقرير الأنشطة اللاصفية',fields:['اسم المنفذة','اسم النشاط','نوع النشاط','مكان التنفيذ','التاريخ','الفئة المستهدفة','عدد المستفيدات','الأهداف','آلية التنفيذ','النتائج والأثر','التوصيات']},
+ 'activity-tracking':{title:'متابعة الأنشطة',fields:['اسم النشاط','المسؤولة عن التنفيذ','التاريخ','الفئة المستهدفة','حالة التنفيذ','نسبة الإنجاز','ملاحظات المتابعة','الإجراء التصحيحي إن وجد']},
+ 'parent-contact':{title:'التواصل مع أولياء الأمور',fields:['اسم المعلمة / الموظفة','اسم الطالبة','الصف / الفصل','اسم ولي الأمر','التاريخ','وسيلة التواصل','سبب التواصل','ملخص التواصل','الإجراء المتخذ','ملاحظات']},
+ 'student-guidance':{title:'تقرير التوجيه الطلابي',fields:['اسم الموجهة / المنفذة','عنوان البرنامج / الحالة','التاريخ','الفئة المستهدفة','عدد المستفيدات','الهدف','الإجراءات المنفذة','النتائج','التوصيات']},
+ 'peer-visits':{title:'تقرير تبادل الزيارات',fields:['اسم المعلمة الزائرة','اسم المعلمة المزارة','المادة / التخصص','التاريخ','الصف / الفصل','عنوان الدرس','هدف الزيارة','أبرز الممارسات الملحوظة','نقاط القوة','التوصيات']},
+ 'learning-outcomes':{title:'خريطة نواتج التعلّم',fields:['اسم المعلمة','المادة','الصف / الفصل','الفصل الدراسي','الوحدة / الموضوع','ناتج التعلم','أداة القياس','مستوى التحقق','الإجراء العلاجي أو الإثرائي']},
+ 'waiting-class':{title:'تقرير حصة الانتظار',fields:['اسم المنفذة','الأسبوع','اليوم','التاريخ','الصف / الفصل','رقم الحصة','اسم المعلمة الغائبة','ما تم تنفيذه','المجال / نوع النشاط','ملاحظات']},
+ 'labs':{title:'تقرير تنفيذ برنامج - المختبرات',fields:['اسم المنفذة','اسم البرنامج / التجربة','مكان التنفيذ','التاريخ','الصف / الفصل','عدد المستهدفات','المستفيدات','الأهداف','وصف التنفيذ','النتائج والملاحظات']},
+ 'general':{title:'تقرير عام',subtitle:'يومي / أسبوعي / شهري',fields:['اسم المنفذة','نوع التقرير','عنوان التقرير','التاريخ','الفئة المستهدفة','عدد المستفيدات','الأهداف','وصف التنفيذ','النتائج والأثر','التوصيات']},
+ 'plc':{title:'تقرير مجتمعات التعلّم المهنية',fields:['اسم المنفذة','عنوان اللقاء','التاريخ','المشاركات','الهدف','محاور اللقاء','الممارسات المتفق عليها','النتائج','التوصيات']},
+ 'health-guidance':{title:'تقرير التوجيه الصحي',fields:['اسم المنفذة','عنوان البرنامج','التاريخ','الفئة المستهدفة','عدد المستفيدات','الهدف','محتوى البرنامج','آلية التنفيذ','النتائج والأثر','التوصيات']},
+ 'active-learning':{title:'تقرير التعلّم النشط',fields:['اسم المعلمة','المادة','الصف / الفصل','عنوان الدرس','التاريخ','الاستراتيجية المستخدمة','الهدف','وصف التطبيق','أثر الاستراتيجية','ملاحظات وتوصيات']},
+ 'applied-lesson':{title:'تقرير الدرس التطبيقي',fields:['اسم المعلمة','المادة','الصف / الفصل','عنوان الدرس','التاريخ','الحصة','أهداف الدرس','الاستراتيجيات المستخدمة','أبرز الممارسات','النتائج','التوصيات']},
+ 'workshops':{title:'تقرير ورشة عمل',fields:['اسم المنفذة','عنوان الورشة','التاريخ','مكان التنفيذ','الفئة المستهدفة','عدد الحاضرات','الأهداف','محاور الورشة','آلية التنفيذ','النتائج والأثر','التوصيات']}
+};
+const params=new URLSearchParams(location.search),key=params.get('type')||'general',cfg=TYPES[key]||TYPES.general;
+document.getElementById('reportTitle').textContent=cfg.title;document.getElementById('reportSubtitle').textContent=cfg.subtitle||'نموذج إلكتروني قابل للطباعة';document.title=cfg.title+' | الابتدائية السابعة بمحافظة الوجه';
+const root=document.getElementById('formRoot');
+const section=document.createElement('section');section.className='section';section.innerHTML='<h2>بيانات التقرير</h2><div class="form-grid" id="grid"></div>';root.appendChild(section);const grid=section.querySelector('#grid');
+const longWords=['الأهداف','وصف','النتائج','الأثر','التوصيات','الملاحظات','محاور','محتوى','الإجراءات','الممارسات','ملخص','ناتج التعلم','ما تم تنفيذه'];
+cfg.fields.forEach((name,i)=>{const wrap=document.createElement('div');const isLong=longWords.some(w=>name.includes(w));wrap.className='field '+(isLong?'full':'');const label=document.createElement('label');label.textContent=name; if(i<2)label.classList.add('required');let input;if(isLong){input=document.createElement('textarea')}else{input=document.createElement('input');input.type=name.includes('التاريخ')?'date':'text'}input.dataset.field=name;input.autocomplete='off';wrap.append(label,input);grid.appendChild(wrap)});
+const evidence=document.createElement('section');evidence.className='section';evidence.innerHTML='<h2>الشواهد (اختياري)</h2><div class="field"><label>إرفاق صور</label><input id="photoInput" type="file" accept="image/*" multiple></div><div class="photos" id="photos"></div>';root.appendChild(evidence);
+document.getElementById('photoInput').addEventListener('change',e=>{const box=document.getElementById('photos');box.innerHTML='';[...e.target.files].slice(0,4).forEach(f=>{const img=document.createElement('img');img.className='preview';img.alt='شاهد مرفق';img.src=URL.createObjectURL(f);box.appendChild(img)})});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('input,textarea,select').forEach(el=>{if(el.type==='file')el.value='';else el.value=''});document.getElementById('photos').innerHTML=''})
+</script>
+</body>
+</html>
