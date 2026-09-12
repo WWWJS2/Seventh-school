@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>تقارير حصص الاحتياط | الابتدائية السابعة بمحافظة الوجه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#10b981;--secondary:#059669;--deep:#065f46;--light:#ecfdf5;--border:#a7f3d0;--text:#0f172a;--muted:#64748b;--danger:#dc2626}
+*{box-sizing:border-box}body{margin:0;font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',Tahoma,Arial,sans-serif;background:#f8fafc;color:var(--text);line-height:1.6}.page{max-width:1180px;margin:0 auto;padding:24px}.header{background:linear-gradient(145deg,#fff,#ecfdf5);border:1px solid var(--border);border-radius:20px;padding:28px;text-align:center;box-shadow:0 8px 24px rgba(6,95,70,.08)}.badge{display:inline-block;background:#fff;border:1px solid var(--border);color:var(--deep);padding:6px 14px;border-radius:999px;font-weight:800}.header h1{margin:12px 0 2px;color:var(--deep);font-size:clamp(1.7rem,4vw,2.5rem)}.header p{margin:0;color:var(--muted);font-weight:700}.panel{margin-top:18px;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(15,23,42,.06)}.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:800;color:#334155}.field input,.field select,.field textarea,table input,table select{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px 11px;font-family:inherit;font-size:.95rem;background:#fff;color:var(--text);outline:none}.field input:focus,.field select:focus,.field textarea:focus,table input:focus,table select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(16,185,129,.12)}.table-wrap{overflow:auto;border:1px solid #e2e8f0;border-radius:14px;margin-top:16px}table{width:100%;border-collapse:collapse;min-width:980px}th,td{border-bottom:1px solid #e2e8f0;padding:10px;text-align:center;vertical-align:middle}th{background:#ecfdf5;color:var(--deep);font-weight:900;white-space:nowrap}tbody tr:last-child td{border-bottom:0}.period{min-width:95px}.small{min-width:105px}.name{min-width:160px}.subject{min-width:140px}.notes{min-width:170px}.remove{border:0;background:#fee2e2;color:#991b1b;border-radius:9px;padding:8px 10px;font-family:inherit;font-weight:900;cursor:pointer}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{border:0;border-radius:11px;padding:11px 16px;font-family:inherit;font-weight:900;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-secondary{background:#0f172a;color:#fff}.btn-soft{background:#e2e8f0;color:#0f172a}.btn-danger{background:#fee2e2;color:#991b1b}.status{margin-top:10px;min-height:24px;color:var(--deep);font-weight:800}.summary{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.summary .box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center}.summary .num{font-size:1.4rem;font-weight:900;color:var(--deep)}.summary .label{font-size:.85rem;color:var(--muted);font-weight:700}.footer-note{margin-top:18px;color:var(--muted);text-align:center;font-size:.85rem}.print-title{display:none}
+@media(max-width:760px){.page{padding:12px}.header{padding:20px 14px}.meta,.summary{grid-template-columns:1fr}.panel{padding:12px}.actions .btn{flex:1 1 46%}}
+@media print{body{background:#fff}.page{max-width:none;padding:0}.header{box-shadow:none;border:0;border-radius:0;padding:10px 0 14px}.panel{box-shadow:none;border:0;padding:0}.actions,.remove,.status,.footer-note{display:none!important}.table-wrap{overflow:visible;border:1px solid #94a3b8;border-radius:0}table{min-width:0;font-size:10.5px}th,td{padding:5px 4px;border:1px solid #cbd5e1}table input,table select,.field input,.field select{border:0!important;box-shadow:none!important;padding:2px;background:transparent;appearance:none}.meta{grid-template-columns:repeat(3,1fr);margin-bottom:8px}.summary{grid-template-columns:repeat(3,1fr)}.print-title{display:block}.badge{border:0;padding:0}.header h1{font-size:22px}@page{size:A4 landscape;margin:10mm}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="badge">وزارة التعليم</div>
+    <h1>تقارير حصص الاحتياط</h1>
+    <p>الابتدائية السابعة بمحافظة الوجه</p>
+  </header>
+
+  <section class="panel">
+    <div class="meta">
+      <div class="field"><label for="reportDate">التاريخ</label><input id="reportDate" type="date"></div>
+      <div class="field"><label for="reportDay">اليوم</label><input id="reportDay" type="text" placeholder="مثال: الأحد"></div>
+      <div class="field"><label for="preparedBy">إعداد / متابعة</label><input id="preparedBy" type="text" placeholder="الاسم"></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>الحصة</th>
+            <th>الصف / الفصل</th>
+            <th>المعلمة الغائبة</th>
+            <th>معلمة الاحتياط</th>
+            <th>المادة / المهمة</th>
+            <th>حالة التنفيذ</th>
+            <th>ملاحظات</th>
+            <th class="remove-col">حذف</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" type="button" id="addRow">+ إضافة حصة</button>
+      <button class="btn btn-secondary" type="button" id="saveReport">حفظ التقرير</button>
+      <button class="btn btn-soft" type="button" id="printReport">طباعة / حفظ PDF</button>
+      <button class="btn btn-danger" type="button" id="clearReport">مسح التقرير</button>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+
+    <div class="summary">
+      <div class="box"><div class="num" id="totalCount">0</div><div class="label">إجمالي حصص الاحتياط</div></div>
+      <div class="box"><div class="num" id="doneCount">0</div><div class="label">تم التنفيذ</div></div>
+      <div class="box"><div class="num" id="pendingCount">0</div><div class="label">لم يتم / قيد المتابعة</div></div>
+    </div>
+  </section>
+  <div class="footer-note">يتم حفظ البيانات على هذا الجهاز والمتصفح فقط.</div>
+</div>
+<script>
+const STORAGE_KEY='seventh_school_reserve_classes_report_v1';
+const rowsEl=document.getElementById('rows');
+const dateEl=document.getElementById('reportDate');
+const dayEl=document.getElementById('reportDay');
+const preparedByEl=document.getElementById('preparedBy');
+const statusEl=document.getElementById('status');
+const dayNames=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+
+function todayISO(){const d=new Date();const off=d.getTimezoneOffset();return new Date(d.getTime()-off*60000).toISOString().slice(0,10)}
+function setDayFromDate(){if(!dateEl.value)return;const d=new Date(dateEl.value+'T12:00:00');dayEl.value=dayNames[d.getDay()]||''}
+function esc(v=''){return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function rowTemplate(data={}){
+  const tr=document.createElement('tr');
+  tr.innerHTML=`
+    <td class="idx"></td>
+    <td><select class="period"><option value="">اختر</option>${[1,2,3,4,5,6,7].map(n=>`<option value="${n}" ${String(data.period)===String(n)?'selected':''}>${n}</option>`).join('')}</select></td>
+    <td><input class="small grade" value="${esc(data.grade||'')}" placeholder="مثال: 3/أ"></td>
+    <td><input class="name absent" value="${esc(data.absent||'')}" placeholder="اسم المعلمة"></td>
+    <td><input class="name substitute" value="${esc(data.substitute||'')}" placeholder="اسم معلمة الاحتياط"></td>
+    <td><input class="subject" value="${esc(data.subject||'')}" placeholder="المادة أو المهمة"></td>
+    <td><select class="state"><option value="تم" ${data.state==='تم'?'selected':''}>تم</option><option value="قيد المتابعة" ${data.state==='قيد المتابعة'?'selected':''}>قيد المتابعة</option><option value="لم يتم" ${data.state==='لم يتم'?'selected':''}>لم يتم</option></select></td>
+    <td><input class="notes" value="${esc(data.notes||'')}" placeholder="ملاحظات"></td>
+    <td class="remove-col"><button type="button" class="remove">حذف</button></td>`;
+  tr.querySelector('.remove').addEventListener('click',()=>{tr.remove();renumber();updateSummary()});
+  tr.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',updateSummary));
+  rowsEl.appendChild(tr);renumber();updateSummary();
+}
+function renumber(){[...rowsEl.children].forEach((tr,i)=>tr.querySelector('.idx').textContent=i+1)}
+function getRows(){return [...rowsEl.children].map(tr=>({period:tr.querySelector('.period').value,grade:tr.querySelector('.grade').value.trim(),absent:tr.querySelector('.absent').value.trim(),substitute:tr.querySelector('.substitute').value.trim(),subject:tr.querySelector('.subject').value.trim(),state:tr.querySelector('.state').value,notes:tr.querySelector('.notes').value.trim()}))}
+function updateSummary(){const rows=getRows().filter(r=>r.period||r.grade||r.absent||r.substitute||r.subject||r.notes);const done=rows.filter(r=>r.state==='تم').length;document.getElementById('totalCount').textContent=rows.length;document.getElementById('doneCount').textContent=done;document.getElementById('pendingCount').textContent=rows.length-done}
+function flash(msg){statusEl.textContent=msg;setTimeout(()=>{if(statusEl.textContent===msg)statusEl.textContent=''},2500)}
+function save(){const data={date:dateEl.value,day:dayEl.value.trim(),preparedBy:preparedByEl.value.trim(),rows:getRows()};localStorage.setItem(STORAGE_KEY,JSON.stringify(data));flash('تم حفظ تقرير حصص الاحتياط على هذا الجهاز.');updateSummary()}
+function load(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return false;const data=JSON.parse(raw);dateEl.value=data.date||todayISO();dayEl.value=data.day||'';preparedByEl.value=data.preparedBy||'';rowsEl.innerHTML='';(data.rows||[]).forEach(rowTemplate);if(!rowsEl.children.length)rowTemplate();updateSummary();return true}catch(e){return false}}
+function clearAll(){if(!confirm('هل تريدين مسح جميع بيانات تقرير حصص الاحتياط؟'))return;localStorage.removeItem(STORAGE_KEY);dateEl.value=todayISO();setDayFromDate();dayEl.value=dayNames[new Date(dateEl.value+'T12:00:00').getDay()];preparedByEl.value='';rowsEl.innerHTML='';rowTemplate();flash('تم مسح التقرير.');}
+
+document.getElementById('addRow').addEventListener('click',()=>rowTemplate());
+document.getElementById('saveReport').addEventListener('click',save);
+document.getElementById('printReport').addEventListener('click',()=>{save();window.print()});
+document.getElementById('clearReport').addEventListener('click',clearAll);
+dateEl.addEventListener('change',setDayFromDate);
+[dateEl,dayEl,preparedByEl].forEach(el=>el.addEventListener('input',updateSummary));
+if(!load()){dateEl.value=todayISO();setDayFromDate();rowTemplate();}
+</script>
+</body>
+</html>
