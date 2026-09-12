@@ -4,109 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>تقارير حصص الاحتياط | الابتدائية السابعة بمحافظة الوجه</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#10b981;--secondary:#059669;--deep:#065f46;--light:#ecfdf5;--border:#a7f3d0;--text:#0f172a;--muted:#64748b;--danger:#dc2626}
-*{box-sizing:border-box}body{margin:0;font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',Tahoma,Arial,sans-serif;background:#f8fafc;color:var(--text);line-height:1.6}.page{max-width:1180px;margin:0 auto;padding:24px}.header{background:linear-gradient(145deg,#fff,#ecfdf5);border:1px solid var(--border);border-radius:20px;padding:28px;text-align:center;box-shadow:0 8px 24px rgba(6,95,70,.08)}.badge{display:inline-block;background:#fff;border:1px solid var(--border);color:var(--deep);padding:6px 14px;border-radius:999px;font-weight:800}.header h1{margin:12px 0 2px;color:var(--deep);font-size:clamp(1.7rem,4vw,2.5rem)}.header p{margin:0;color:var(--muted);font-weight:700}.panel{margin-top:18px;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(15,23,42,.06)}.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:800;color:#334155}.field input,.field select,.field textarea,table input,table select{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px 11px;font-family:inherit;font-size:.95rem;background:#fff;color:var(--text);outline:none}.field input:focus,.field select:focus,.field textarea:focus,table input:focus,table select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(16,185,129,.12)}.table-wrap{overflow:auto;border:1px solid #e2e8f0;border-radius:14px;margin-top:16px}table{width:100%;border-collapse:collapse;min-width:980px}th,td{border-bottom:1px solid #e2e8f0;padding:10px;text-align:center;vertical-align:middle}th{background:#ecfdf5;color:var(--deep);font-weight:900;white-space:nowrap}tbody tr:last-child td{border-bottom:0}.period{min-width:95px}.small{min-width:105px}.name{min-width:160px}.subject{min-width:140px}.notes{min-width:170px}.remove{border:0;background:#fee2e2;color:#991b1b;border-radius:9px;padding:8px 10px;font-family:inherit;font-weight:900;cursor:pointer}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{border:0;border-radius:11px;padding:11px 16px;font-family:inherit;font-weight:900;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-secondary{background:#0f172a;color:#fff}.btn-soft{background:#e2e8f0;color:#0f172a}.btn-danger{background:#fee2e2;color:#991b1b}.status{margin-top:10px;min-height:24px;color:var(--deep);font-weight:800}.summary{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.summary .box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center}.summary .num{font-size:1.4rem;font-weight:900;color:var(--deep)}.summary .label{font-size:.85rem;color:var(--muted);font-weight:700}.footer-note{margin-top:18px;color:var(--muted);text-align:center;font-size:.85rem}.print-title{display:none}
-@media(max-width:760px){.page{padding:12px}.header{padding:20px 14px}.meta,.summary{grid-template-columns:1fr}.panel{padding:12px}.actions .btn{flex:1 1 46%}}
-@media print{body{background:#fff}.page{max-width:none;padding:0}.header{box-shadow:none;border:0;border-radius:0;padding:10px 0 14px}.panel{box-shadow:none;border:0;padding:0}.actions,.remove,.status,.footer-note{display:none!important}.table-wrap{overflow:visible;border:1px solid #94a3b8;border-radius:0}table{min-width:0;font-size:10.5px}th,td{padding:5px 4px;border:1px solid #cbd5e1}table input,table select,.field input,.field select{border:0!important;box-shadow:none!important;padding:2px;background:transparent;appearance:none}.meta{grid-template-columns:repeat(3,1fr);margin-bottom:8px}.summary{grid-template-columns:repeat(3,1fr)}.print-title{display:block}.badge{border:0;padding:0}.header h1{font-size:22px}@page{size:A4 landscape;margin:10mm}}
+:root{--primary:#10b981;--secondary:#059669;--dark:#047857;--light:#d1fae5;--accent:#fbbf24;--text:#0f172a;--gray:#475569;--shadow:0 4px 12px rgba(16,185,129,.1)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{font-family:'Tajawal',system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 50%,#f0fdf4 100%);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden;font-size:16px;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+.page{width:94vw;max-width:1200px;margin:0 auto;padding:26px 12px 70px}
+.card-page{background:linear-gradient(135deg,#fff 0%,#ecfdf5 100%);padding:22px;border-radius:18px;box-shadow:0 10px 30px rgba(15,118,110,.12)}
+.report-header{background:linear-gradient(135deg,#14532d,#166534);color:#fff;padding:14px 16px;border-radius:10px;margin-bottom:18px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.2)}
+.report-header h2{font-size:1.4rem;margin-bottom:8px;font-weight:900;text-shadow:1px 1px 2px rgba(0,0,0,.18)}
+.report-header .school-name{font-size:1.08rem;font-weight:900;margin-bottom:5px}
+.report-header .program-title{font-size:1.25rem;font-weight:900;margin-top:7px;padding:8px 12px;background:rgba(255,255,255,.12);border-radius:8px;display:inline-block}
+.wait-intro{text-align:center;color:var(--gray);font-size:.95rem;margin-bottom:18px}
+.form{display:grid;gap:14px}.grid-3{display:grid;grid-template-columns:1fr;gap:10px}@media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+label{display:flex;flex-direction:column;gap:6px;color:var(--text);font-weight:800;font-size:.88rem}
+.input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;border:2px solid #bbf7d0;background:#fefdf9;font-family:'Tajawal',sans-serif;font-size:1rem;transition:all .2s;color:var(--text);line-height:1.75}
+textarea{min-height:110px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;direction:rtl;unicode-bidi:plaintext;letter-spacing:0;word-spacing:0;text-align:right}
+.input:focus,textarea:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(16,185,129,.18);background:#fff}
+.chipset{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.chip{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#ecfdf5,#dcfce7);padding:7px 10px;border-radius:999px;border:1px solid #bbf7d0;font-size:.82rem;cursor:pointer;transition:all .2s;user-select:none}.chip input{width:15px;height:15px;accent-color:var(--primary);cursor:pointer}.chip:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(16,185,129,.25)}
+.actions{display:flex;flex-direction:column;gap:8px;margin-top:6px}@media(min-width:768px){.actions{flex-direction:row}}.btn{border:none;border-radius:14px;padding:10px 16px;font-weight:900;font-size:.95rem;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 4px 15px rgba(16,185,129,.35);transition:transform .15s,box-shadow .15s;width:100%;text-align:center;font-family:'Tajawal',sans-serif}.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(16,185,129,.45)}.btn:active{transform:scale(.99)}.btn.danger{background:linear-gradient(135deg,#ef4444,#b91c1c);box-shadow:0 4px 15px rgba(185,28,28,.35)}
+.date-with-hijri{position:relative}.date-input-container{position:relative;display:flex;align-items:center}.date-input-container .input{padding-right:44px;cursor:pointer}.hijri-toggle{position:absolute;left:7px;top:50%;transform:translateY(-50%);background:transparent;border:none;cursor:pointer;width:30px;height:30px;border-radius:999px;display:flex;align-items:center;justify-content:center;transition:all .2s}.hijri-toggle:hover{background:rgba(16,185,129,.12)}.hijri-icon{width:18px;height:18px;fill:var(--dark)}
+.hijri-calendar{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(15,118,110,.2);padding:12px;z-index:1500;width:90vw;max-width:320px;border:2px solid #bbf7d0;display:none}.hijri-calendar.active{display:block;animation:fadeIn .2s ease}.hijri-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #e5e7eb}.hijri-month-year{font-weight:900;color:var(--dark);font-size:.95rem}.hijri-nav{display:flex;gap:4px}.hijri-nav button{background:#ecfdf5;border:none;border-radius:6px;padding:3px 7px;cursor:pointer;font-size:.75rem;font-weight:900;color:var(--dark);transition:all .2s;font-family:'Tajawal',sans-serif}.hijri-nav button:hover{background:var(--primary);color:#fff}.hijri-weekdays{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-weight:900;color:var(--dark);font-size:.75rem;margin-bottom:4px}.hijri-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.hijri-day{padding:6px 2px;text-align:center;border-radius:6px;cursor:pointer;font-size:.8rem;color:var(--text);transition:all .2s;font-weight:800}.hijri-day:hover{background:#ecfdf5}.today-btn{margin-top:8px;width:100%;padding:7px 10px;border:none;border-radius:8px;cursor:pointer;font-weight:900;font-size:.85rem;background:#ecfdf5;color:var(--dark);transition:all .2s;font-family:'Tajawal',sans-serif}.today-btn:hover{background:var(--primary);color:#fff}
+.wait-subtitle{margin-top:20px;margin-bottom:8px;font-size:1.05rem;color:var(--dark);font-weight:900;border-right:4px solid var(--accent);padding-right:8px}.table-wrap{margin-top:8px;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(15,118,110,.12);overflow-x:auto;background:#fff}table{width:100%;border-collapse:collapse;min-width:750px;font-size:.8rem}th,td{padding:8px 6px;border-bottom:1px solid #e5e7eb;text-align:center;vertical-align:top}th{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-weight:900;font-size:.78rem;white-space:nowrap}tbody tr:nth-child(even){background:#f9fafb}tbody tr:hover{background:#ecfdf5}td.text-right{text-align:right;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;unicode-bidi:plaintext}
+.toast{position:fixed;top:24px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:10px 14px;border-radius:999px;font-size:.9rem;font-weight:900;box-shadow:0 8px 20px rgba(15,118,110,.35);z-index:2000;animation:fadeIn .2s ease;max-width:92%;text-align:center}.toast.warn{background:linear-gradient(135deg,#facc15,#eab308);color:#111827}.toast.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}@keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@media(max-width:768px){.card-page{padding:18px}.report-header{padding:15px}.report-header h2{font-size:1.3rem}.input,textarea,select{font-size:1rem}}@media(max-width:480px){.page{width:100%;padding:10px 8px 50px}.report-header h2{font-size:1.15rem}}
 </style>
 </head>
 <body>
-<div class="page">
-  <header class="header">
-    <div class="badge">وزارة التعليم</div>
-    <h1>تقارير حصص الاحتياط</h1>
-    <p>الابتدائية السابعة بمحافظة الوجه</p>
-  </header>
+<main class="page">
+<section class="card-page">
+  <div class="report-header">
+    <h2>تقرير تنفيذ</h2>
+    <div class="school-name">الابتدائية السابعة بمحافظة الوجه</div>
+    <div class="program-title">حصص الاحتياط</div>
+  </div>
 
-  <section class="panel">
-    <div class="meta">
-      <div class="field"><label for="reportDate">التاريخ</label><input id="reportDate" type="date"></div>
-      <div class="field"><label for="reportDay">اليوم</label><input id="reportDay" type="text" placeholder="مثال: الأحد"></div>
-      <div class="field"><label for="preparedBy">إعداد / متابعة</label><input id="preparedBy" type="text" placeholder="الاسم"></div>
+  <p class="wait-intro">سجلي تفاصيل حصص الاحتياط التي قمتِ بتنفيذها. يتم حفظ البيانات محلياً في المتصفح.</p>
+
+  <form id="sesForm" class="form" autocomplete="off">
+    <div class="grid-3">
+      <label>الأسبوع *
+        <select class="input" id="weekNumber" required>
+          <option value="">اختاري الأسبوع</option>
+          <option>الأول</option><option>الثاني</option><option>الثالث</option><option>الرابع</option><option>الخامس</option>
+          <option>السادس</option><option>السابع</option><option>الثامن</option><option>التاسع</option><option>العاشر</option>
+          <option>الحادي عشر</option><option>الثاني عشر</option><option>الثالث عشر</option><option>الرابع عشر</option><option>الخامس عشر</option>
+        </select>
+      </label>
+      <label>اليوم *
+        <select class="input" id="dayName" required>
+          <option value="">اختاري اليوم</option>
+          <option>الأحد</option><option>الإثنين</option><option>الثلاثاء</option><option>الأربعاء</option><option>الخميس</option>
+        </select>
+      </label>
+      <label class="date-with-hijri">التاريخ (هجري) *
+        <div class="date-input-container">
+          <input class="input hijri-date-input" id="sessionDate" required placeholder="اختر التاريخ الهجري" readonly>
+          <button type="button" class="hijri-toggle" aria-label="اختيار تاريخ">
+            <svg class="hijri-icon" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V9h14v10zM5 7V5h14v2H5zm2 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+          </button>
+        </div>
+        <div class="hijri-calendar">
+          <div class="hijri-header">
+            <div class="hijri-month-year"></div>
+            <div class="hijri-nav">
+              <button type="button" class="prev-year">«</button><button type="button" class="prev-month">‹</button><button type="button" class="next-month">›</button><button type="button" class="next-year">»</button>
+            </div>
+          </div>
+          <div class="hijri-weekdays"><span>ح</span><span>ن</span><span>ث</span><span>ر</span><span>خ</span><span>ج</span><span>س</span></div>
+          <div class="hijri-days"></div>
+          <button type="button" class="today-btn">اختر اليوم</button>
+        </div>
+      </label>
     </div>
 
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>الحصة</th>
-            <th>الصف / الفصل</th>
-            <th>المعلمة الغائبة</th>
-            <th>معلمة الاحتياط</th>
-            <th>المادة / المهمة</th>
-            <th>حالة التنفيذ</th>
-            <th>ملاحظات</th>
-            <th class="remove-col">حذف</th>
-          </tr>
-        </thead>
-        <tbody id="rows"></tbody>
-      </table>
+    <div class="grid-3">
+      <label>الصف / الفصل *<input class="input" id="className" required placeholder="مثال: 2 / أ"></label>
+      <label>رقم الحصة *<input class="input" id="sessionNumber" required placeholder="مثال: 3" inputmode="numeric"></label>
+      <label>المعلمة الغائبة *<input class="input" id="absentTeacher" required placeholder="مثال: أ/ سارة محمد"></label>
     </div>
+
+    <label>ما تم تنفيذه مع الطالبات *
+      <textarea class="input" id="activitiesText" required placeholder="اكتبي بإيجاز ما تم عمله في حصة الاحتياط..."></textarea>
+    </label>
+
+    <label>المجال / نوع النشاط *
+      <div class="chipset">
+        <label class="chip"><input type="checkbox" id="basicSkills"><span>المهارات الأساسية</span></label>
+        <label class="chip"><input type="checkbox" id="values"><span>القيم والمواطنة الصالحة</span></label>
+        <label class="chip"><input type="checkbox" id="futureSkills"><span>مهارات المستقبل</span></label>
+      </div>
+    </label>
 
     <div class="actions">
-      <button class="btn btn-primary" type="button" id="addRow">+ إضافة حصة</button>
-      <button class="btn btn-secondary" type="button" id="saveReport">حفظ التقرير</button>
-      <button class="btn btn-soft" type="button" id="printReport">طباعة / حفظ PDF</button>
-      <button class="btn btn-danger" type="button" id="clearReport">مسح التقرير</button>
+      <button class="btn" type="button" id="saveSession">حفظ الحصة</button>
+      <button class="btn" type="button" id="exportSessions">تصدير / طباعة</button>
+      <button class="btn danger" type="button" id="clearAll">مسح جميع الحصص</button>
     </div>
-    <div class="status" id="status" aria-live="polite"></div>
+  </form>
 
-    <div class="summary">
-      <div class="box"><div class="num" id="totalCount">0</div><div class="label">إجمالي حصص الاحتياط</div></div>
-      <div class="box"><div class="num" id="doneCount">0</div><div class="label">تم التنفيذ</div></div>
-      <div class="box"><div class="num" id="pendingCount">0</div><div class="label">لم يتم / قيد المتابعة</div></div>
-    </div>
-  </section>
-  <div class="footer-note">يتم حفظ البيانات على هذا الجهاز والمتصفح فقط.</div>
-</div>
+  <h3 class="wait-subtitle">الحصص المسجلة</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>م</th><th>الأسبوع</th><th>اليوم</th><th>التاريخ</th><th>الصف</th><th>الحصة</th><th>المعلمة الغائبة</th><th>ما تم تنفيذه</th><th>المجال</th><th>إجراء</th></tr></thead>
+      <tbody id="sessionsBody"></tbody>
+    </table>
+  </div>
+</section>
+</main>
+
 <script>
-const STORAGE_KEY='seventh_school_reserve_classes_report_v1';
-const rowsEl=document.getElementById('rows');
-const dateEl=document.getElementById('reportDate');
-const dayEl=document.getElementById('reportDay');
-const preparedByEl=document.getElementById('preparedBy');
-const statusEl=document.getElementById('status');
-const dayNames=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+function showToast(msg,type){type=type||'';const t=document.createElement('div');t.className='toast'+(type?' '+type:'');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .25s'},1400);setTimeout(()=>t.remove(),1900)}
+function escapeHtml(text){if(text===null||text===undefined)return'';return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
+function safeSetStorage(key,value){try{localStorage.setItem(key,value);return true}catch(e){showToast('التخزين المحلي ممتلئ أو ممنوع على هذا المتصفح.','danger');return false}}
+function safeGetStorage(key){try{return localStorage.getItem(key)}catch(e){return null}}
+function openPrintWindow(html){const w=window.open('','_blank');if(!w){showToast('المتصفح منع فتح نافذة. فعّلي النوافذ المنبثقة.','warn');return}w.document.open();w.document.write(html);w.document.close();w.document.title='';w.onload=async function(){try{if(w.document.fonts&&w.document.fonts.ready)await w.document.fonts.ready}catch(_){}setTimeout(()=>{try{w.focus();w.print()}catch(_){}},250)}}
 
-function todayISO(){const d=new Date();const off=d.getTimezoneOffset();return new Date(d.getTime()-off*60000).toISOString().slice(0,10)}
-function setDayFromDate(){if(!dateEl.value)return;const d=new Date(dateEl.value+'T12:00:00');dayEl.value=dayNames[d.getDay()]||''}
-function esc(v=''){return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function rowTemplate(data={}){
-  const tr=document.createElement('tr');
-  tr.innerHTML=`
-    <td class="idx"></td>
-    <td><select class="period"><option value="">اختر</option>${[1,2,3,4,5,6,7].map(n=>`<option value="${n}" ${String(data.period)===String(n)?'selected':''}>${n}</option>`).join('')}</select></td>
-    <td><input class="small grade" value="${esc(data.grade||'')}" placeholder="مثال: 3/أ"></td>
-    <td><input class="name absent" value="${esc(data.absent||'')}" placeholder="اسم المعلمة"></td>
-    <td><input class="name substitute" value="${esc(data.substitute||'')}" placeholder="اسم معلمة الاحتياط"></td>
-    <td><input class="subject" value="${esc(data.subject||'')}" placeholder="المادة أو المهمة"></td>
-    <td><select class="state"><option value="تم" ${data.state==='تم'?'selected':''}>تم</option><option value="قيد المتابعة" ${data.state==='قيد المتابعة'?'selected':''}>قيد المتابعة</option><option value="لم يتم" ${data.state==='لم يتم'?'selected':''}>لم يتم</option></select></td>
-    <td><input class="notes" value="${esc(data.notes||'')}" placeholder="ملاحظات"></td>
-    <td class="remove-col"><button type="button" class="remove">حذف</button></td>`;
-  tr.querySelector('.remove').addEventListener('click',()=>{tr.remove();renumber();updateSummary()});
-  tr.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',updateSummary));
-  rowsEl.appendChild(tr);renumber();updateSummary();
-}
-function renumber(){[...rowsEl.children].forEach((tr,i)=>tr.querySelector('.idx').textContent=i+1)}
-function getRows(){return [...rowsEl.children].map(tr=>({period:tr.querySelector('.period').value,grade:tr.querySelector('.grade').value.trim(),absent:tr.querySelector('.absent').value.trim(),substitute:tr.querySelector('.substitute').value.trim(),subject:tr.querySelector('.subject').value.trim(),state:tr.querySelector('.state').value,notes:tr.querySelector('.notes').value.trim()}))}
-function updateSummary(){const rows=getRows().filter(r=>r.period||r.grade||r.absent||r.substitute||r.subject||r.notes);const done=rows.filter(r=>r.state==='تم').length;document.getElementById('totalCount').textContent=rows.length;document.getElementById('doneCount').textContent=done;document.getElementById('pendingCount').textContent=rows.length-done}
-function flash(msg){statusEl.textContent=msg;setTimeout(()=>{if(statusEl.textContent===msg)statusEl.textContent=''},2500)}
-function save(){const data={date:dateEl.value,day:dayEl.value.trim(),preparedBy:preparedByEl.value.trim(),rows:getRows()};localStorage.setItem(STORAGE_KEY,JSON.stringify(data));flash('تم حفظ تقرير حصص الاحتياط على هذا الجهاز.');updateSummary()}
-function load(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return false;const data=JSON.parse(raw);dateEl.value=data.date||todayISO();dayEl.value=data.day||'';preparedByEl.value=data.preparedBy||'';rowsEl.innerHTML='';(data.rows||[]).forEach(rowTemplate);if(!rowsEl.children.length)rowTemplate();updateSummary();return true}catch(e){return false}}
-function clearAll(){if(!confirm('هل تريدين مسح جميع بيانات تقرير حصص الاحتياط؟'))return;localStorage.removeItem(STORAGE_KEY);dateEl.value=todayISO();setDayFromDate();dayEl.value=dayNames[new Date(dateEl.value+'T12:00:00').getDay()];preparedByEl.value='';rowsEl.innerHTML='';rowTemplate();flash('تم مسح التقرير.');}
+let waitSessions=[];
+function waitLoadSessions(){const saved=safeGetStorage('seventh_reserve_sessions');if(saved){try{waitSessions=JSON.parse(saved)||[]}catch(_){waitSessions=[]}}renderWaitSessions()}
+function waitSaveSessions(){safeSetStorage('seventh_reserve_sessions',JSON.stringify(waitSessions))}
+function renderWaitSessions(){const body=document.getElementById('sessionsBody');body.innerHTML='';waitSessions.forEach((s,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${i+1}</td><td>${escapeHtml(s.week)}</td><td>${escapeHtml(s.day)}</td><td>${escapeHtml(s.date)}</td><td>${escapeHtml(s.className)}</td><td>${escapeHtml(s.number)}</td><td>${escapeHtml(s.teacher)}</td><td class="text-right">${escapeHtml(s.activities)}</td><td class="text-right">${escapeHtml(s.fields)}</td><td><button class="btn danger" style="width:auto;padding:4px 10px;font-size:.75rem;border-radius:999px;box-shadow:none" type="button" data-del-wait="${i}">حذف</button></td>`;body.appendChild(tr)});body.querySelectorAll('[data-del-wait]').forEach(b=>{b.addEventListener('click',()=>{const i=Number(b.dataset.delWait);if(!confirm('هل تريدين حذف هذه الحصة؟'))return;waitSessions.splice(i,1);waitSaveSessions();renderWaitSessions();showToast('تم حذف الحصة')})})}
 
-document.getElementById('addRow').addEventListener('click',()=>rowTemplate());
-document.getElementById('saveReport').addEventListener('click',save);
-document.getElementById('printReport').addEventListener('click',()=>{save();window.print()});
-document.getElementById('clearReport').addEventListener('click',clearAll);
-dateEl.addEventListener('change',setDayFromDate);
-[dateEl,dayEl,preparedByEl].forEach(el=>el.addEventListener('input',updateSummary));
-if(!load()){dateEl.value=todayISO();setDayFromDate();rowTemplate();}
+function buildWaitPrintHTML(list){const rows=list.map((s,i)=>`<tr><td>${i+1}</td><td>${escapeHtml(s.week||'')}</td><td>${escapeHtml(s.day||'')}</td><td>${escapeHtml(s.date||'')}</td><td>${escapeHtml(s.className||'')}</td><td>${escapeHtml(s.number||'')}</td><td>${escapeHtml(s.teacher||'')}</td><td class="txt">${escapeHtml(s.activities||'')}</td><td class="txt">${escapeHtml(s.fields||'')}</td></tr>`).join('');return `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"><title></title><style>*{box-sizing:border-box}body{margin:0;background:#fff;font-family:'Tajawal',system-ui,-apple-system,Segoe UI,Tahoma,Arial,sans-serif;color:#0f172a}@page{size:A4 landscape;margin:10mm}.hdr{text-align:center;margin-bottom:6mm}.school{font-size:13pt;font-weight:900;color:#14532d;margin-bottom:3px}h1{margin:0;font-size:16pt;font-weight:900;color:#047857}table{width:100%;border-collapse:collapse;font-size:11pt}th,td{border:1px solid #bbf7d0;padding:6px;text-align:center;vertical-align:top}th{background:#16a34a;color:#fff;font-weight:900}td.txt{text-align:right;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;unicode-bidi:plaintext}.sign{margin-top:8mm;border-top:1px solid #bbf7d0;padding-top:5mm;direction:ltr;text-align:left}.s1{font-weight:900;color:#047857}</style></head><body><div class="hdr"><div class="school">الابتدائية السابعة بمحافظة الوجه</div><h1>تقارير حصص الاحتياط</h1></div><table><thead><tr><th>م</th><th>الأسبوع</th><th>اليوم</th><th>التاريخ</th><th>الصف</th><th>الحصة</th><th>المعلمة الغائبة</th><th>ما تم تنفيذه</th><th>المجال</th></tr></thead><tbody>${rows}</tbody></table><div class="sign"><div class="s1">مديرة المدرسة</div></div></body></html>`}
+
+function initWaitForm(){document.getElementById('saveSession').addEventListener('click',()=>{const week=document.getElementById('weekNumber').value;const day=document.getElementById('dayName').value;const date=document.getElementById('sessionDate').value;const className=document.getElementById('className').value.trim();const number=document.getElementById('sessionNumber').value.trim();const teacher=document.getElementById('absentTeacher').value.trim();const activities=document.getElementById('activitiesText').value.trim();const fields=[];if(document.getElementById('basicSkills').checked)fields.push('المهارات الأساسية');if(document.getElementById('values').checked)fields.push('القيم والمواطنة الصالحة');if(document.getElementById('futureSkills').checked)fields.push('مهارات المستقبل');if(!week||!day||!date||!className||!number||!teacher||!activities||fields.length===0){showToast('أكملي جميع الحقول واختر مجالاً واحداً على الأقل','warn');return}waitSessions.push({week,day,date,className,number,teacher,activities,fields:fields.join('، ')});waitSaveSessions();renderWaitSessions();document.getElementById('sesForm').reset();showToast('تم حفظ الحصة')});document.getElementById('clearAll').addEventListener('click',()=>{if(!waitSessions.length){showToast('لا توجد حصص مسجلة','warn');return}if(!confirm('مسح جميع حصص الاحتياط؟'))return;waitSessions=[];waitSaveSessions();renderWaitSessions();showToast('تم مسح جميع الحصص')});document.getElementById('exportSessions').addEventListener('click',()=>{if(!waitSessions.length){showToast('لا توجد حصص مسجلة','warn');return}openPrintWindow(buildWaitPrintHTML(waitSessions))})}
+
+let currentHijriYear=1447,currentHijriMonth=1;const HIJRI_MONTH_NAMES=['محرم','صفر','ربيع الأول','ربيع الآخر','جمادى الأولى','جمادى الآخرة','رجب','شعبان','رمضان','شوال','ذو القعدة','ذو الحجة'];
+function getTodayHijri(){const t=new Date();return `1447/${t.getMonth()+1}/${t.getDate()}`}
+function renderHijriCalendar(calendar,input){calendar.associatedInput=input;calendar.querySelector('.hijri-month-year').textContent=HIJRI_MONTH_NAMES[currentHijriMonth-1]+' '+currentHijriYear;const daysContainer=calendar.querySelector('.hijri-days');let html='';for(let d=1;d<=30;d++)html+=`<div class="hijri-day">${d}</div>`;daysContainer.innerHTML=html;daysContainer.querySelectorAll('.hijri-day').forEach(day=>day.addEventListener('click',()=>{input.value=`${currentHijriYear}/${currentHijriMonth}/${day.textContent}`;calendar.classList.remove('active');showToast('تم اختيار التاريخ')}))}
+function initHijriCalendars(){const input=document.querySelector('.hijri-date-input');const calendar=document.querySelector('.hijri-calendar');const toggle=document.querySelector('.hijri-toggle');toggle.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();calendar.classList.toggle('active');if(calendar.classList.contains('active'))renderHijriCalendar(calendar,input)});document.addEventListener('click',e=>{if(!calendar.contains(e.target)&&e.target!==toggle)calendar.classList.remove('active')});calendar.addEventListener('click',e=>e.stopPropagation());calendar.querySelector('.prev-year').onclick=()=>{currentHijriYear--;renderHijriCalendar(calendar,input)};calendar.querySelector('.next-year').onclick=()=>{currentHijriYear++;renderHijriCalendar(calendar,input)};calendar.querySelector('.prev-month').onclick=()=>{currentHijriMonth--;if(currentHijriMonth<1){currentHijriMonth=12;currentHijriYear--}renderHijriCalendar(calendar,input)};calendar.querySelector('.next-month').onclick=()=>{currentHijriMonth++;if(currentHijriMonth>12){currentHijriMonth=1;currentHijriYear++}renderHijriCalendar(calendar,input)};calendar.querySelector('.today-btn').onclick=()=>{input.value=getTodayHijri();calendar.classList.remove('active');showToast('تم اختيار تاريخ اليوم')}}
+document.addEventListener('DOMContentLoaded',()=>{waitLoadSessions();initWaitForm();initHijriCalendars()});
 </script>
 </body>
 </html>
