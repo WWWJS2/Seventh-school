@@ -1,61 +1,332 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>تقارير حصص الاحتياط | الابتدائية السابعة بمحافظة الوجه</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>تقرير حصة الاحتياط | الابتدائية السابعة بمحافظة الوجه</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ar.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
 <style>
-:root{--primary:#10b981;--secondary:#059669;--dark:#047857;--accent:#fbbf24;--text:#0f172a;--gray:#475569}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 50%,#f0fdf4 100%);color:var(--text);line-height:1.65}
-.page{width:94vw;max-width:1200px;margin:auto;padding:26px 12px 70px}.card-page{background:linear-gradient(135deg,#fff,#ecfdf5);padding:22px;border-radius:18px;box-shadow:0 10px 30px rgba(15,118,110,.12)}
-.report-header{background:linear-gradient(135deg,#14532d,#166534);color:#fff;padding:14px 16px;border-radius:10px;margin-bottom:18px;text-align:center}.report-header h2{font-size:1.4rem;margin:0 0 8px;font-weight:900}.school-name{font-size:1.08rem;font-weight:900}.program-title{font-size:1.25rem;font-weight:900;margin-top:7px;padding:8px 12px;background:rgba(255,255,255,.12);border-radius:8px;display:inline-block}
-.wait-intro{text-align:center;color:var(--gray);font-size:.95rem;margin-bottom:18px}.form{display:grid;gap:14px}.grid-3{display:grid;grid-template-columns:1fr;gap:10px}@media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-label{display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:.88rem}.input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;border:2px solid #bbf7d0;background:#fefdf9;font-family:inherit;font-size:1rem;color:var(--text);line-height:1.7}.input:focus,textarea:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(16,185,129,.18);background:#fff}textarea{min-height:110px;resize:vertical;direction:rtl;text-align:right}.flatpickr-input[readonly]{cursor:pointer;background:#fefdf9}.flatpickr-calendar{font-family:'Tajawal',sans-serif}
-.chipset{display:flex;flex-wrap:wrap;gap:8px}.chip{display:flex;flex-direction:row;align-items:center;gap:6px;background:#ecfdf5;padding:7px 10px;border-radius:999px;border:1px solid #bbf7d0;font-size:.82rem}.chip input{width:15px;height:15px;accent-color:var(--primary)}
-.actions{display:flex;flex-direction:column;gap:8px}@media(min-width:768px){.actions{flex-direction:row}}.btn{border:none;border-radius:14px;padding:10px 16px;font-family:inherit;font-weight:900;font-size:.95rem;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;width:100%}.btn.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}
-.wait-subtitle{margin:20px 0 8px;font-size:1.05rem;color:var(--dark);font-weight:900;border-right:4px solid var(--accent);padding-right:8px}.table-wrap{margin-top:8px;border-radius:12px;overflow:auto;box-shadow:0 6px 18px rgba(15,118,110,.12);background:#fff}table{width:100%;border-collapse:collapse;min-width:750px;font-size:.8rem}th,td{padding:8px 6px;border-bottom:1px solid #e5e7eb;text-align:center;vertical-align:top}th{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-weight:900;white-space:nowrap}tbody tr:nth-child(even){background:#f9fafb}td.text-right{text-align:right;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}.toast{position:fixed;top:24px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:10px 14px;border-radius:999px;font-weight:900;z-index:2147483647;max-width:92%;text-align:center}.toast.warn{background:linear-gradient(135deg,#facc15,#eab308);color:#111827}.toast.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}
-@media(max-width:480px){.page{width:100%;padding:10px 8px 50px}.card-page{padding:14px}}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'HelveticaNeueW23', Arial, sans-serif;
+  background: #ffffff;
+}
+@font-face {
+  font-family: 'HelveticaNeueW23';
+  src: url('fonts/HelveticaNeueW23-Regular.ttf') format('truetype');
+}
+
+header {
+  background: #0c8380;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+header h3 {
+  margin: 3px 0;
+  font-size: 16px;
+}
+
+h3 label {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin: 5px 0 2px;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #c2c1c2;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+  text-align: center;
+  background: transparent;
+  font-family: 'HelveticaNeueW23', Arial, sans-serif;
+}
+
+textarea {
+  min-height: 40px;
+}
+
+button {
+  border: none;
+  padding: 8px 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'HelveticaNeueW23', Arial, sans-serif;
+  text-align: center;
+}
+
+button.printBtn {
+  background: #0c8380;
+  color: white;
+}
+button.deleteBtn {
+  background: red;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@media print {
+  body {
+    background: none !important;
+  }
+
+  input,
+  textarea,
+  label {
+    background: transparent !important;
+    color: black;
+    border-color: #c2c1c2;
+    margin-bottom: 20px !important;
+  }
+}
 </style>
 </head>
 <body>
-<main class="page"><section class="card-page">
-<div class="report-header"><h2>تقرير تنفيذ</h2><div class="school-name">الابتدائية السابعة بمحافظة الوجه</div><div class="program-title">حصص الاحتياط</div></div>
-<p class="wait-intro">سجلي تفاصيل حصص الاحتياط التي قمتِ بتنفيذها. يتم حفظ البيانات محلياً في المتصفح.</p>
-<form id="sesForm" class="form" autocomplete="off">
-<div class="grid-3">
-<label>الأسبوع *<select class="input" id="weekNumber" required><option value="">اختاري الأسبوع</option><option>الأول</option><option>الثاني</option><option>الثالث</option><option>الرابع</option><option>الخامس</option><option>السادس</option><option>السابع</option><option>الثامن</option><option>التاسع</option><option>العاشر</option><option>الحادي عشر</option><option>الثاني عشر</option><option>الثالث عشر</option><option>الرابع عشر</option><option>الخامس عشر</option></select></label>
-<label>اليوم *<select class="input" id="dayName" required><option value="">اختاري اليوم</option><option>الأحد</option><option>الإثنين</option><option>الثلاثاء</option><option>الأربعاء</option><option>الخميس</option></select></label>
-<label>التاريخ *<input class="input" type="text" id="date1" placeholder="اختر التاريخ" readonly required></label>
-</div>
-<div class="grid-3"><label>الصف / الفصل *<input class="input" id="className" required placeholder="مثال: 2 / أ"></label><label>رقم الحصة *<input class="input" id="sessionNumber" required placeholder="مثال: 3" inputmode="numeric"></label><label>المعلمة الغائبة *<input class="input" id="absentTeacher" required placeholder="مثال: أ/ سارة محمد"></label></div>
-<label>ما تم تنفيذه مع الطالبات *<textarea class="input" id="activitiesText" required placeholder="اكتبي بإيجاز ما تم عمله في حصة الاحتياط..."></textarea></label>
-<label>المجال / نوع النشاط *<div class="chipset"><label class="chip"><input type="checkbox" id="basicSkills"><span>المهارات الأساسية</span></label><label class="chip"><input type="checkbox" id="values"><span>القيم والمواطنة الصالحة</span></label><label class="chip"><input type="checkbox" id="futureSkills"><span>مهارات المستقبل</span></label></div></label>
-<div class="actions"><button class="btn" type="button" id="saveSession">حفظ الحصة</button><button class="btn" type="button" id="exportSessions">عرض / طباعة PDF</button><button class="btn danger" type="button" id="clearAll">مسح جميع الحصص</button></div>
-</form>
-<h3 class="wait-subtitle">الحصص المسجلة</h3>
-<div class="table-wrap"><table><thead><tr><th>م</th><th>الأسبوع</th><th>اليوم</th><th>التاريخ</th><th>الصف</th><th>الحصة</th><th>المعلمة الغائبة</th><th>ما تم تنفيذه</th><th>المجال</th><th>إجراء</th></tr></thead><tbody id="sessionsBody"></tbody></table></div>
-</section></main>
+
+<div id="mainContent">
+  <header><h3>تقرير حصة الاحتياط</h3></header>
+  <div id="waiting" class="tab-content active">
+    <h3><label>حصة الاحتياط</label></h3>
+
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px;">
+      <div><label>المعلمة الأساسية</label><input type="text" /></div>
+      <div><label>المادة</label><input type="text" /></div>
+      <div><label>معلمة الاحتياط</label><input type="text" /></div>
+      <div><label>التخصص</label><input type="text" /></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:5px;">
+      <div><label>الفصل الدراسي</label><input type="text" /></div>
+      <div><label>اليوم</label><input type="text" /></div>
+      <div><label>التاريخ</label><input type="text" id="waitingDate" placeholder="اختر التاريخ" readonly /></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:5px;">
+      <div><label>الصف</label><input type="text" /></div>
+      <div><label>الحصة</label><input type="text" /></div>
+    </div>
+
+    <label>البرامج المنفذة</label>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:5px;">
+      <input type="text" /><input type="text" />
+      <input type="text" /><input type="text" />
+    </div>
+
+    <label>الشواهد</label>
+    <input type="file" multiple accept="image/*" onchange="storeImages(event,'waiting')" />
+    <div id="waiting-counter" style="font-size:12px; color:#15445a; font-weight:bold;">عدد الصور المرفوعة: 0 / 4</div>
+    <div id="waiting-preview" style="display:flex; gap:5px; flex-wrap:wrap; margin-top:5px;"></div>
+
+    <button class="printBtn" onclick="printPDF('waiting',this)">طباعة التقرير</button>
+    <button class="deleteBtn" onclick="clearForm('waiting')">حذف البيانات</button>
+  </div>
+ </div>
+
 <script>
-function showToast(msg,type){type=type||'';const t=document.createElement('div');t.className='toast'+(type?' '+type:'');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .25s'},1400);setTimeout(()=>t.remove(),1900)}
-function escapeHtml(text){if(text==null)return'';return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
-function safeSetStorage(k,v){try{localStorage.setItem(k,v);return true}catch(e){showToast('التخزين المحلي غير متاح','danger');return false}}function safeGetStorage(k){try{return localStorage.getItem(k)}catch(e){return null}}
-let waitSessions=[];let datePicker=null;let selectedHijriDate='';
-function waitLoadSessions(){const saved=safeGetStorage('seventh_reserve_sessions');if(saved){try{waitSessions=JSON.parse(saved)||[]}catch(_){waitSessions=[]}}renderWaitSessions()}
-function waitSaveSessions(){safeSetStorage('seventh_reserve_sessions',JSON.stringify(waitSessions))}
-function renderWaitSessions(){const body=document.getElementById('sessionsBody');body.innerHTML='';waitSessions.forEach((s,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${i+1}</td><td>${escapeHtml(s.week)}</td><td>${escapeHtml(s.day)}</td><td>${escapeHtml(s.date)}</td><td>${escapeHtml(s.className)}</td><td>${escapeHtml(s.number)}</td><td>${escapeHtml(s.teacher)}</td><td class="text-right">${escapeHtml(s.activities)}</td><td class="text-right">${escapeHtml(s.fields)}</td><td><button class="btn danger" style="width:auto;padding:4px 10px;font-size:.75rem;border-radius:999px" type="button" data-del-wait="${i}">حذف</button></td>`;body.appendChild(tr)});body.querySelectorAll('[data-del-wait]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.delWait);if(!confirm('هل تريدين حذف هذه الحصة؟'))return;waitSessions.splice(i,1);waitSaveSessions();renderWaitSessions();showToast('تم حذف الحصة')}))}
-function buildPdfContent(){const rows=waitSessions.map((s,i)=>`<tr class="main-row"><td>${i+1}</td><td>${escapeHtml(s.week)}</td><td>${escapeHtml(s.day)}</td><td>${escapeHtml(s.date)}</td><td>${escapeHtml(s.className)}</td><td>${escapeHtml(s.number)}</td><td>${escapeHtml(s.teacher)}</td></tr><tr class="detail-row"><td colspan="7"><div><b>ما تم تنفيذه:</b> ${escapeHtml(s.activities)}</div><div><b>المجال:</b> ${escapeHtml(s.fields)}</div></td></tr>`).join('');const wrapper=document.createElement('div');wrapper.dir='rtl';wrapper.style.width='190mm';wrapper.style.minHeight='277mm';wrapper.style.padding='5mm';wrapper.style.boxSizing='border-box';wrapper.style.background='#fff';wrapper.style.color='#0f172a';wrapper.style.fontFamily="'Tajawal',Arial,sans-serif";wrapper.innerHTML=`<style>.pdf-head{text-align:center;margin-bottom:6mm}.pdf-school{font-size:15pt;font-weight:900;color:#14532d}.pdf-title{font-size:18pt;font-weight:900;color:#047857;margin-top:2mm}.pdf-table{direction:rtl;width:100%;border-collapse:collapse;table-layout:fixed;font-size:9pt}.pdf-table th,.pdf-table td{border:1px solid #86efac;padding:5px 4px;text-align:center;vertical-align:middle;color:#0f172a;overflow-wrap:anywhere;word-break:break-word}.pdf-table th{background:#16a34a!important;color:#fff!important;font-weight:900;font-size:8.5pt}.pdf-table th:nth-child(1),.pdf-table td:nth-child(1){width:5%}.pdf-table th:nth-child(2),.pdf-table td:nth-child(2){width:13%}.pdf-table th:nth-child(3),.pdf-table td:nth-child(3){width:12%}.pdf-table th:nth-child(4),.pdf-table td:nth-child(4){width:17%}.pdf-table th:nth-child(5),.pdf-table td:nth-child(5){width:12%}.pdf-table th:nth-child(6),.pdf-table td:nth-child(6){width:10%}.pdf-table th:nth-child(7),.pdf-table td:nth-child(7){width:31%}.detail-row td{padding:6px 8px!important;text-align:right!important;background:#f7fef9;line-height:1.7}.detail-row div+div{margin-top:3px}.main-row,.detail-row{page-break-inside:avoid;break-inside:avoid}</style><div class="pdf-head"><div class="pdf-school">الابتدائية السابعة بمحافظة الوجه</div><div class="pdf-title">تقارير حصص الاحتياط</div></div><table class="pdf-table"><thead><tr><th>م</th><th>الأسبوع</th><th>اليوم</th><th>التاريخ</th><th>الصف</th><th>الحصة</th><th>المعلمة الغائبة</th></tr></thead><tbody>${rows}</tbody></table>`;return wrapper}
-function waitForPaint(){return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))}
-async function exportPdf(){if(!waitSessions.length){showToast('لا توجد حصص مسجلة','warn');return}const preview=window.open('','_blank');if(preview){preview.document.open();preview.document.write('<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>جاري تجهيز التقرير</title></head><body style="font-family:Arial;text-align:center;padding-top:40px">جاري تجهيز التقرير...</body></html>');preview.document.close()}showToast('جاري تجهيز التقرير...');const host=document.createElement('div');host.style.position='fixed';host.style.inset='0';host.style.zIndex='2147483000';host.style.background='#fff';host.style.overflow='auto';host.style.display='flex';host.style.justifyContent='center';host.style.alignItems='flex-start';const wrapper=buildPdfContent();host.appendChild(wrapper);document.body.appendChild(host);try{await waitForPaint();if(document.fonts&&document.fonts.ready)await document.fonts.ready;await waitForPaint();const options={margin:[10,10,10,10],filename:'تقارير-حصص-الاحتياط.pdf',image:{type:'jpeg',quality:.98},html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff',scrollX:0,scrollY:0},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy']}};const blob=await html2pdf().set(options).from(wrapper).outputPdf('blob');const url=URL.createObjectURL(blob);if(preview){preview.location.replace(url)}else{const a=document.createElement('a');a.href=url;a.download='تقارير-حصص-الاحتياط.pdf';document.body.appendChild(a);a.click();a.remove()}setTimeout(()=>URL.revokeObjectURL(url),120000)}catch(e){console.error(e);if(preview)preview.close();showToast('تعذر إنشاء التقرير','danger')}finally{host.remove()}}
-function initWaitForm(){document.getElementById('saveSession').addEventListener('click',()=>{const week=document.getElementById('weekNumber').value;const day=document.getElementById('dayName').value;const date=(selectedHijriDate||(datePicker&&datePicker.altInput?datePicker.altInput.value:'')).trim();const className=document.getElementById('className').value.trim();const number=document.getElementById('sessionNumber').value.trim();const teacher=document.getElementById('absentTeacher').value.trim();const activities=document.getElementById('activitiesText').value.trim();const fields=[];if(document.getElementById('basicSkills').checked)fields.push('المهارات الأساسية');if(document.getElementById('values').checked)fields.push('القيم والمواطنة الصالحة');if(document.getElementById('futureSkills').checked)fields.push('مهارات المستقبل');if(!week||!day||!date||!className||!number||!teacher||!activities||!fields.length){showToast('أكملي جميع الحقول واختر مجالاً واحداً على الأقل','warn');return}waitSessions.push({week,day,date,className,number,teacher,activities,fields:fields.join('، ')});waitSaveSessions();renderWaitSessions();document.getElementById('sesForm').reset();selectedHijriDate='';if(datePicker)datePicker.clear();showToast('تم حفظ الحصة')});document.getElementById('clearAll').addEventListener('click',()=>{if(!waitSessions.length){showToast('لا توجد حصص مسجلة','warn');return}if(!confirm('مسح جميع حصص الاحتياط؟'))return;waitSessions=[];waitSaveSessions();renderWaitSessions();showToast('تم مسح جميع الحصص')});document.getElementById('exportSessions').addEventListener('click',exportPdf)}
-function initReportDate(){datePicker=flatpickr(document.getElementById('date1'),{locale:'ar',disableMobile:true,altInput:true,altFormat:'d-MM-yyyy هـ',dateFormat:'Y-m-d',onChange:function(selectedDates,dateStr,instance){if(selectedDates.length>0){const miladi=new Date(selectedDates[0]);miladi.setDate(miladi.getDate()-1);const hijri=new Intl.DateTimeFormat('ar-SA-u-ca-islamic',{day:'2-digit',month:'2-digit',year:'numeric'}).format(miladi);selectedHijriDate=hijri;instance.altInput.value=hijri}}})}
-document.addEventListener('DOMContentLoaded',()=>{initReportDate();waitLoadSessions();initWaitForm()});
+let uploadedImages = {};
+
+document.addEventListener("DOMContentLoaded", function() {
+  const dateInput = document.getElementById('waitingDate');
+  if (dateInput) {
+    flatpickr(dateInput, {
+      locale: 'ar',
+      disableMobile: true,
+      altInput: true,
+      altFormat: 'd-MM-yyyy هـ',
+      dateFormat: 'Y-m-d',
+      onChange: function(selectedDates, dateStr, instance) {
+        if (selectedDates.length > 0) {
+          const miladi = selectedDates[0];
+          miladi.setDate(miladi.getDate() - 1);
+          const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+          }).format(miladi);
+          instance.altInput.value = hijri;
+        }
+      }
+    });
+  }
+
+  loadForm('waiting');
+  updateCounter('waiting');
+  renderPreview('waiting');
+
+  document.querySelectorAll('#waiting input[type="text"], #waiting textarea').forEach(input => {
+    input.addEventListener('input', () => saveForm('waiting'));
+  });
+});
+
+function saveForm(tabId) {
+  const tab = document.getElementById(tabId);
+  const data = {};
+  tab.querySelectorAll('input[type="text"],textarea').forEach(input => {
+    data[input.previousElementSibling ? input.previousElementSibling.textContent : input.name] = input.value;
+  });
+  localStorage.setItem(tabId + '-form', JSON.stringify(data));
+}
+
+function loadForm(tabId) {
+  const tab = document.getElementById(tabId);
+  const data = JSON.parse(localStorage.getItem(tabId + '-form') || '{}');
+  tab.querySelectorAll('input[type="text"],textarea').forEach(input => {
+    const key = input.previousElementSibling ? input.previousElementSibling.textContent : input.name;
+    if (data[key]) input.value = data[key];
+  });
+}
+
+function clearForm(tabId) {
+  const tab = document.getElementById(tabId);
+  tab.querySelectorAll('input[type="text"],textarea').forEach(input => input.value = '');
+  uploadedImages[tabId] = [];
+  updateCounter(tabId);
+  renderPreview(tabId);
+  localStorage.removeItem(tabId + '-form');
+}
+
+function storeImages(event, tabId) {
+  const files = event.target.files;
+  if (!uploadedImages[tabId]) uploadedImages[tabId] = [];
+  if (uploadedImages[tabId].length + files.length > 4) {
+    alert('مسموح برفع 4 صور فقط.');
+    event.target.value = '';
+    return;
+  }
+  for (let i = 0; i < files.length; i++) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      uploadedImages[tabId].push(e.target.result);
+      updateCounter(tabId);
+      renderPreview(tabId);
+      saveForm(tabId);
+    };
+    reader.readAsDataURL(files[i]);
+  }
+}
+
+function updateCounter(tabId) {
+  const counter = document.getElementById(tabId + '-counter');
+  if (counter) {
+    const count = uploadedImages[tabId]?.length || 0;
+    counter.textContent = 'عدد الصور المرفوعة: ' + count + ' / 4';
+    counter.style.color = count >= 4 ? 'red' : '#15445a';
+  }
+}
+
+function renderPreview(tabId) {
+  const preview = document.getElementById(tabId + '-preview');
+  preview.innerHTML = '';
+  (uploadedImages[tabId] || []).forEach((src, index) => {
+    const container = document.createElement('div');
+    container.style.position = 'relative';
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.width = '70px';
+    img.style.height = '70px';
+    img.style.objectFit = 'cover';
+    img.style.border = '1px solid #ccc';
+    img.style.borderRadius = '4px';
+    const btn = document.createElement('button');
+    btn.textContent = 'x';
+    btn.style.position = 'absolute';
+    btn.style.top = '2px';
+    btn.style.left = '50%';
+    btn.style.transform = 'translateX(-50%)';
+    btn.style.width = '18px';
+    btn.style.height = '18px';
+    btn.style.fontSize = '10px';
+    btn.style.background = 'red';
+    btn.style.color = 'white';
+    btn.style.border = '2px solid white';
+    btn.style.borderRadius = '50%';
+    btn.style.cursor = 'pointer';
+    btn.onclick = () => {
+      uploadedImages[tabId].splice(index, 1);
+      updateCounter(tabId);
+      renderPreview(tabId);
+      saveForm(tabId);
+    };
+    container.appendChild(img);
+    container.appendChild(btn);
+    preview.appendChild(container);
+  });
+}
+
+function printPDF(tabId, btn) {
+  const content = document.getElementById(tabId).cloneNode(true);
+  content.querySelectorAll('button,input[type="file"],#' + tabId + '-counter,#' + tabId + '-preview').forEach(el => el.remove());
+
+  const wrapper = document.createElement('div');
+  wrapper.style.position = 'relative';
+  wrapper.style.width = '210mm';
+  wrapper.style.height = '296.5mm';
+  wrapper.style.padding = '13mm 10mm 20mm 10mm';
+  wrapper.style.boxSizing = 'border-box';
+  wrapper.style.background = '#ffffff';
+  wrapper.appendChild(content);
+
+  const tabImages = uploadedImages[tabId] || [];
+  if (tabImages.length > 0) {
+    const imagesWrapper = document.createElement('div');
+    imagesWrapper.style.display = 'flex';
+    imagesWrapper.style.justifyContent = 'center';
+    imagesWrapper.style.marginTop = '5px';
+    imagesWrapper.style.gap = '5px';
+    tabImages.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.width = '160px';
+      img.style.height = '220px';
+      img.style.objectFit = 'cover';
+      imagesWrapper.appendChild(img);
+    });
+    wrapper.appendChild(imagesWrapper);
+  }
+
+  html2pdf()
+    .set({
+      margin: 0,
+      filename: 'reserve-class-report.pdf',
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { scale: 3, useCORS: true, backgroundColor: '#ffffff', scrollY: 0 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    })
+    .from(wrapper)
+    .save();
+}
 </script>
 </body>
 </html>
